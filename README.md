@@ -7,7 +7,7 @@
 
 ### REQUIREMENTS ###
   Shall prompt user for permission for location
-   AI API Shall:
+   AI API shall:
     Give information about plant in question.
-    Give recommended tips on how to best care for plany in question.
+    Give recommended tips on how to best care for plant in question.
     Give 
