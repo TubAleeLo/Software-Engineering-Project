@@ -3,7 +3,7 @@
 
 ### Description ###
   Web Application that gives gardeners information about their plants, and give recommended tips on how to best care for them. 
-  The application will also help generate a routine for taking take of the plants in question.
+  The application will also help generate a routine for taking care of the plants in question.
 
 ### REQUIREMENTS ###
   Shall prompt user for permission for location
