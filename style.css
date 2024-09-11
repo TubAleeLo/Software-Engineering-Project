@@ -3,7 +3,7 @@ body {
   font-family: 'Poppins', Roboto, sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(120deg, #4caf50, #81c784); /* Brighter greens */
+  background: linear-gradient(120deg, #3b953e, #65ad69); /* Brighter greens */
   color: #f0fff0;
   min-height: 100vh;
   display: flex;
@@ -58,7 +58,7 @@ p:hover {
 
 /* Button styling */
 button {
-  background-color: #55a95a; /* Brighter green */
+  background-color: #378d3d; /* Brighter green */
   border: none;
   padding: 10px 30px;
   border-radius: 30px;
@@ -70,7 +70,7 @@ button {
 }
 
 button:hover {
-  background-color: #3e9b43; /* Darker green on hover */
+  background-color: #217125; /* Darker green on hover */
   box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3); /* Stronger shadow */
   transform: translateY(-5px); /* Lift effect on hover */
 }
