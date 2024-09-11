@@ -33,10 +33,7 @@ h1 {
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 20px;
-  color: #fff;
-  background: linear-gradient(120deg, #f0fff0 0%, #98ee99 100%); /* Brighter text gradient */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #c6eeca; /* Solid color for the text */
   transition: all 0.3s ease;
 }
 
@@ -61,7 +58,7 @@ p:hover {
 
 /* Button styling */
 button {
-  background-color: #66bb6a; /* Brighter green */
+  background-color: #55a95a; /* Brighter green */
   border: none;
   padding: 10px 30px;
   border-radius: 30px;
@@ -73,7 +70,7 @@ button {
 }
 
 button:hover {
-  background-color: #43a047; /* Darker green on hover */
+  background-color: #3e9b43; /* Darker green on hover */
   box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3); /* Stronger shadow */
   transform: translateY(-5px); /* Lift effect on hover */
 }
