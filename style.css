@@ -70,9 +70,9 @@ button {
 }
 
 button:hover {
-  background-color: #217125; /* Darker green on hover */
-  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3); /* Stronger shadow */
-  transform: translateY(-5px); /* Lift effect on hover */
+  background-color: #217125; 
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3); 
+  transform: translateY(-5px); 
 }
 
 /* Link styling */
