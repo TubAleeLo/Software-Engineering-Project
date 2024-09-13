@@ -7,17 +7,17 @@
 - **Garden Information**: Users should input details about their garden (e.g., location, climate zone, soil type, garden layout, and plant types).
 - **Customization**: Users can specify their level of gardening experience and what they need help with (e.g., flower garden, vegetable patch, indoor plants).
 
-### 2. Weather Integration (via AI API)
+### 2. Weather Integration 
 - **Real-time Weather Monitoring**: Provide up-to-date and localized weather forecasts for planning gardening tasks.
 - **Weather-based Recommendations**: AI should offer insights based on upcoming weather conditions, like when to water, protect plants from frost, or delay planting.
 - **Alerts and Notifications**: Send users notifications regarding sudden weather changes or optimal times for certain gardening tasks (like planting or harvesting).
 
-### 3. Plant Database and Information (via AI API)
+### 3. Plant Database and Information 
 - **Extensive Plant Database**: Allow users to search for plants and get detailed information, including sunlight needs, water requirements, soil preferences, common pests, and diseases.
 - **Plant Care Tips**: Provide AI-generated care routines for each plant based on seasonal changes, weather, and the user’s local environment.
 - **Plant Identification**: Allow users to upload photos of plants for identification or diagnose plant health issues with image recognition.
 
-### 4. Gardening Routine Suggestions (via AI API)
+### 4. Gardening Routine Suggestions 
 - **Routine Scheduling**: Create personalized gardening routines based on plant types, weather, and local growing conditions (e.g., when to plant, prune, fertilize, or harvest).
 - **Task Reminders**: Set reminders for daily, weekly, or seasonal gardening tasks, such as watering, pest control, pruning, etc.
 - **Seasonal Guidance**: Suggest the best plants to grow each season based on the user’s climate zone and available space.
