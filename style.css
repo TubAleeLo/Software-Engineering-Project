@@ -1,9 +1,13 @@
 /* General body styles */
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Poppins', Roboto, sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(120deg, #3b953e, #65ad69); /* Brighter greens */
+  background: linear-gradient(120deg, #3b953e, #55e05c); /* Brighter greens */
   color: #f0fff0;
   min-height: 100vh;
   display: flex;
@@ -15,7 +19,7 @@ body {
 
 /* Container for content */
 .container {
-  background: rgba(255, 255, 255, 0.15); /* Slightly brighter */
+  background: rgba(71, 182, 99, 0.651); /* Slightly brighter */
   padding: 40px;
   border-radius: 15px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow */
@@ -24,6 +28,57 @@ body {
   width: 90%;
   max-width: 800px;
   animation: fadeIn 2s ease;
+}
+
+.form-container {
+  margin-left: auto;
+  margin-right: auto; /*Aligns login form to center*/
+  flex-direction: column;
+  justify-content: center;  /* Center horizontally */
+  text-align: center;
+  align-items: center;      /* Center vertically */
+  max-height: 300px;            /* Full viewport height */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 250px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+  backdrop-filter: blur(12px); /* Increased blur for a softer look */
+  background-color: rgba(252, 252, 252, 0.17);
+  border: 1px #fff;
+}
+
+/* Style the form itself */
+form {
+  display: flex;
+  gap: 10px;               /* Adds space between form elements */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+input {
+  border: none;
+  outline: none;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 70%;
+  font-size: 12pt;
+  border-radius: 5000px;
+  padding: 10px 20px 10px 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+  backdrop-filter: blur(12px); /* Increased blur for a softer look */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  opacity: .5;              /* Initial opacity */
+  transition: opacity 0.5s ease; /* Smooth transition effect */
+}
+
+    
+input:hover {
+  opacity: 1;
+}
+
+input:focus,
+input:not(:placeholder-shown) {
+  opacity: 1;
 }
 
 /* Fancy heading */
@@ -58,9 +113,12 @@ p:hover {
 
 /* Button styling */
 button {
-  background-color: #378d3d; /* Brighter green */
   border: none;
-  padding: 10px 30px;
+  width: fit-content;
+  justify-content: center;
+  background-color: #378d3d; /* Brighter green */
+  padding: 10px 15px;
+  margin: 5px 5px 5px 5px;
   border-radius: 30px;
   font-size: 1.1rem;
   color: #fff;
@@ -86,3 +144,4 @@ a {
 a:hover {
   color: #e6ffe6; /* Brighter green on hover */
 }
+

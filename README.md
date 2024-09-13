@@ -10,4 +10,4 @@
    AI API shall:
     Give information about plant in question.
     Give recommended tips on how to best care for plant in question.
-    Give 
+    Give plant care tips based on weather and season.
