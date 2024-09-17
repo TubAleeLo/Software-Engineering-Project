@@ -71,15 +71,6 @@ input {
 }
 
     
-/* input:hover {
-  opacity: 1;
-}
-
-input:focus,
-input:not(:placeholder-shown) {
-  opacity: 1;
-} */
-
 /* Fancy heading */
 h1 {
   font-size: 3rem;
@@ -110,6 +101,12 @@ p:hover {
   color: #e6ffe6; /* Lighter green on hover */
 }
 
+.button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 7px; 
+  margin-top: 10px;
+}
 /* Button styling */
 button {
   border: none;
