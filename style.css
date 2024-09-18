@@ -1,23 +1,19 @@
-/* General body styles */
-html {
-  height: 100%;
-}
-
+/* General Page Styles */
 body {
-  font-family: 'Poppins', Roboto, sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(120deg, #3b953e, #55e05c); /* Brighter greens */
-  color: #f0fff0;
-  min-height: 100vh;
+  background-color: #f9f9f9;
+  color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
   text-align: center;
   transition: background 0.5s ease;
 }
 
-/* Container for content */
+/* General Container */
 .container {
   background: rgba(71, 182, 99, 0.651); /* Slightly brighter */
   padding: 40px;
@@ -30,14 +26,87 @@ body {
   animation: fadeIn 2s ease;
 }
 
+/* Hero Section (Landing Page) */
+.hero-section {
+  background: linear-gradient(90deg, #56ccf2, #2f80ed);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-section p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.cta-btn {
+  background-color: #ff7f50;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.cta-btn:hover {
+  background-color: #e56b3b;
+}
+
+/* Features Section (Landing Page) */
+.features-section {
+  padding: 50px 20px;
+  background-color: white;
+  text-align: center;
+}
+
+.features-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.feature-item {
+  margin-bottom: 30px;
+}
+
+.feature-item h3 {
+  font-size: 1.5rem;
+  color: #2f80ed;
+}
+
+/* Call to Action Section (Landing Page) */
+.cta-section {
+  background-color: #f1f1f1;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #2f80ed;
+  color: white;
+}
+
+/* Login Form (Login Page) */
 .form-container {
   margin-left: auto;
-  margin-right: auto; /*Aligns login form to center*/
+  margin-right: auto; /* Aligns login form to center */
   flex-direction: column;
-  justify-content: center;  /* Center horizontally */
+  justify-content: center; /* Center horizontally */
   text-align: center;
-  align-items: center;      /* Center vertically */
-  max-height: 300px;            /* Full viewport height */
+  align-items: center; /* Center vertically */
+  max-height: 300px; /* Full viewport height */
   margin-top: 20px;
   margin-bottom: 20px;
   max-width: 250px;
@@ -47,10 +116,9 @@ body {
   border: 1px #fff;
 }
 
-/* Style the form itself */
 form {
   display: flex;
-  gap: 10px;               /* Adds space between form elements */
+  gap: 10px; /* Adds space between form elements */
   padding: 20px;
   border-radius: 8px;
 }
@@ -63,15 +131,14 @@ input {
   width: 70%;
   font-size: 12pt;
   border-radius: 5000px;
-  padding: 10px 20px 10px 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
-  backdrop-filter: blur(12px); /* Increased blur for a softer look */
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-  opacity: .5;              /* Initial opacity */
-  transition: opacity 0.5s ease; /* Smooth transition effect */
+  padding: 10px 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
 }
 
-    
 input:hover {
   opacity: 1;
 }
@@ -88,7 +155,7 @@ h1 {
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 20px;
-  color: #c6eeca; /* Solid color for the text */
+  color: #c6eeca;
   transition: all 0.3s ease;
 }
 
@@ -97,18 +164,17 @@ h1:hover {
   transform: scale(1.05);
 }
 
-/* Paragraph styling */
 p {
   font-size: 1.2rem;
   line-height: 1.6;
-  color: #d8f0d8; /* Brighter paragraph text */
+  color: #d8f0d8;
   margin-bottom: 20px;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* More noticeable shadow */
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
   transition: color 0.3s ease;
 }
 
 p:hover {
-  color: #e6ffe6; /* Lighter green on hover */
+  color: #e6ffe6;
 }
 
 /* Button styling */
@@ -116,32 +182,30 @@ button {
   border: none;
   width: fit-content;
   justify-content: center;
-  background-color: #378d3d; /* Brighter green */
+  background-color: #378d3d;
   padding: 10px 15px;
-  margin: 5px 5px 5px 5px;
+  margin: 5px;
   border-radius: 30px;
   font-size: 1.1rem;
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Fancy button shadow */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-  background-color: #1c6d1f; /* Darker green on hover */
-  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3); /* Stronger shadow */
-  transform: translateY(-5px); /* Lift effect on hover */
+  background-color: #1c6d1f;
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
 }
 
-/* Link styling */
 a {
-  color: #b2ffb2; /* Brighter link color */
+  color: #b2ffb2;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #e6ffe6; /* Brighter green on hover */
+  color: #e6ffe6;
 }
-
