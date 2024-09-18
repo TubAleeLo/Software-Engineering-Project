@@ -67,7 +67,22 @@ input {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
   backdrop-filter: blur(12px); /* Increased blur for a softer look */
   text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+<<<<<<< HEAD
   background-color: white;
+=======
+  opacity: .5;              /* Initial opacity */
+  transition: opacity 0.5s ease; /* Smooth transition effect */
+}
+
+    
+input:hover {
+  opacity: 1;
+}
+
+input:focus,
+input:not(:placeholder-shown) {
+  opacity: 1;
+>>>>>>> parent of 773c3a6 (added landing page and edits to style.css)
 }
 
     
@@ -140,3 +155,4 @@ a {
 a:hover {
   color: #e6ffe6; /* Brighter green on hover */
 }
+
