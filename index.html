@@ -1,17 +1,51 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title> Project W</title>
-    <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="container">
-<h1>welcome to Project W</h1>
-<p>this is content</p>
-<button>click me</button>
+  <head>
+      <title> Leaf Logic</title>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Leaf Logic</h1>
+      <p>Smart Plant Care Assistant</p>
+      
+      <form class="form-container">
+        <h2>Login</h2>
+  
+        <!-- Username Input -->
+        <input type="text" id="username" name="username" placeholder="Username" required>
+  
+        <!-- Password Input -->
+        <input type="password" id="password" name="password" placeholder="Password" required>
+
+
+      <!-- Container for Login and Register buttons -->
+      <div class="button-container">
+        <!-- Submit Button -->
+        <button type="button submit">Login</button>
+
+        <!-- Create Account Button -->
+         <button type="button" id="create-account"> Register</button>
+      </div>  
+
+
+
+        <!-- Error message -->
+        <p id="error-message" style="color: red; display: none;">Invalid username or password!</p>
+      </form>
+
+      <!--Remove This later-->
+      <button id="myButton">Times Clicked: 0</button>
+      <!---->
+
     </div>
-</body>
+  </body>
 </html>
+
+<!--Load script after HTML-->
+<script src="index.js"></script>
