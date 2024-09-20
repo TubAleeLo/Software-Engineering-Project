@@ -5,7 +5,7 @@
       <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="./styles/style.css">
     
   </head>
 
@@ -16,6 +16,9 @@
       
       <form class="form-container">
         <h2>Login</h2>
+
+        <!-- Error message -->
+        <p id="error-message" class="error-message">Invalid username or password!</p>
   
         <!-- Username Input -->
         <input type="text" id="username" name="username" placeholder="Username" required>
@@ -26,16 +29,11 @@
         <!-- Submit Button -->
         <button type="submit">Login</button>
   
-        <!-- Error message -->
-        <p id="error-message" style="color: red; display: none;">Invalid username or password!</p>
+        
       </form>
-
-      <!--Remove This later-->
-      <button id="times-clicked-button">Times Clicked: 0</button>
-      <!---->
       
       <!--Load script after content-->
-      <script src="index.js"></script>
+      <script src="./index.js"></script>
       
     </div>
     <a href="./registerTest.html">register test</a>
