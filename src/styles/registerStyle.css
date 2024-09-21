@@ -16,9 +16,11 @@ button {
 
 
   #password-error, #email-error {
-    height: 20px; /* Adjust height as necessary */
-    font-size: 8pt;
+    margin: 0 auto 15px auto;
+    height: 40px; /* Adjust height as necessary */
+    font-size: 10pt;
     color: red;
+    max-width: 300px;
     visibility: hidden; /* Start hidden, but space is reserved */
 }
 
@@ -43,6 +45,10 @@ button {
   backdrop-filter: blur(12px); /* Increased blur for a softer look */
   background-color: rgba(252, 252, 252, 0.17);
   border: 1px #fff;
+}
+
+input {
+  margin-bottom: 35px;
 }
 
 /* Style the form itself */

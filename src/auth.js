@@ -4,7 +4,7 @@ function validatePassword(event) {
     const message = document.getElementById('password-error');
     
     // Reset error messages
-    message.style.visibility('visible');
+    message.classList.add('visible');
 
     // Password should contain at least one letter, one number, and one special character
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
@@ -30,12 +30,15 @@ function validateEmail() {
     const emailError = document.getElementById('email-error');
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    // Check if the email is valid
     if (!emailRegex.test(email)) {
         emailError.textContent = 'Please enter a valid email address';
-        emailError.style.color = 'red';
+        emailError.style.visibility = 'visible';  // Ensure the message is visible
         return false;
     } else {
-        emailError.textContent = ''; // Clear error if valid
+        emailError.textContent = ''; // Clear error message
+        emailError.style.visibility = 'hidden'; // Hide when valid
         return true;
     }
 }
