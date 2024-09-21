@@ -14,38 +14,41 @@ button {
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Fancy button shadow */
   }
 
-  .error-message {
-    display: none;
+
+  #password-error, #email-error {
+    height: 20px; /* Adjust height as necessary */
     font-size: 8pt;
-    line-height: 1.6;
-    color: #b91d1d; /* Brighter paragraph text */
-    margin: auto;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* More noticeable shadow */
-    transition: color 0.3s ease;
-  }
+    color: red;
+    visibility: hidden; /* Start hidden, but space is reserved */
+}
+
+#password-error.visible, #email-error.visible {
+    visibility: visible;
+}
+
   
-  .form-container {
-    margin-left: auto;
-    margin-right: auto; /*Aligns login form to center*/
-    flex-direction: column;
-    justify-content: center;  /* Center horizontally */
-    text-align: center;
-    align-items: center;      /* Center vertically */
-    max-height: 400px;            /* Full viewport height */
-    margin-top: 20px;
-    margin-bottom: 20px;
-    max-width: 300px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow */
-    backdrop-filter: blur(12px); /* Increased blur for a softer look */
-    background-color: rgba(252, 252, 252, 0.17);
-    border: 1px #fff;
-  }
-  
-  /* Style the form itself */
-  form {
-    display: flex;
-    gap: 10px;               /* Adds space between form elements */
-    padding: 20px;
-    border-radius: 8px;
-  }
-  
+.form-container {
+  margin-left: auto;
+  margin-right: auto; /*Aligns login form to center*/
+  flex-direction: column;
+  justify-content: center;  /* Center horizontally */
+  text-align: center;
+  align-items: center;      /* Center vertically */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  min-height: 400px;            /* Full viewport height */
+  min-width: 295px;
+  max-width: 425px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+  backdrop-filter: blur(12px); /* Increased blur for a softer look */
+  background-color: rgba(252, 252, 252, 0.17);
+  border: 1px #fff;
+}
+
+/* Style the form itself */
+form {
+  display: flex;
+  gap: 10px;               /* Adds space between form elements */
+  padding: 20px;
+  border-radius: 8px;
+}

@@ -2,23 +2,49 @@ function validatePassword(event) {
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirm-password').value;
     const message = document.getElementById('password-error');
+    
+    // Reset error messages
+    message.style.visibility('visible');
 
-    if (password.length < 6) {
-        message.style.display = "block"
-        message.textContent = 'Password must be at least 6 characters long';
-    }
-
-    if (password === confirmPassword) {
-        message.textContent = 'Passwords match!';
-        message.style.color = 'green';
-        return true;
-    } else {
-        message.textContent = 'Passwords do not match.';
-        message.style.color = 'red';
+    // Password should contain at least one letter, one number, and one special character
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+    if (!passwordRegex.test(password)) {
+        message.textContent = 'Password must 6 characters long and contain at least one letter, number, and special character';
         event.preventDefault();
         return false;
     }
+
+    // Check if passwords match
+    if (password !== confirmPassword) {
+        message.textContent = 'Passwords do not match.';
+        return false;
+    }
+
+    message.textContent = 'Passwords match!';
+    message.style.color = 'green';
+    return true;
 }
+
+function validateEmail() {
+    const email = document.getElementById('email').value;
+    const emailError = document.getElementById('email-error');
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        emailError.textContent = 'Please enter a valid email address';
+        emailError.style.color = 'red';
+        return false;
+    } else {
+        emailError.textContent = ''; // Clear error if valid
+        return true;
+    }
+}
+
+// Real-time validation as user types
+document.getElementById('email').addEventListener('input', validateEmail);
+document.getElementById('password').addEventListener('input', validatePassword);
+document.getElementById('confirm-password').addEventListener('input', validatePassword);
+
 
 const signupForm = document.getElementById('signup-form');
 signupForm.addEventListener('submit', (e) => {
@@ -27,21 +53,22 @@ signupForm.addEventListener('submit', (e) => {
     const email = signupForm['email'].value;
     const password = signupForm['password'].value;
 
-    // console.log(email, password);
+    
+    if (validateEmail() && validatePassword()) {
+        // User Creation 
+        auth.createUserWithEmailAndPassword(email, password).then(cred => {
+            const user = cred.user;
+            window.location.href = "index.html"; // TODO: change to main application page, after it is made ofc 
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error("Error signing up:", errorCode, errorMessage);
+            // Handle error messages here
+        });
 
-    auth.createUserWithEmailAndPassword(email, password).then(cred => {
-        const user = cred.user;
-        window.location.href = "index.html"; // TODO: change to main application page, after it is made ofc 
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.error("Error signing up:", errorCode, errorMessage);
-        // Handle error messages here
-    });
-
-    signupForm.reset();
-
+        signupForm.reset();
+    }
 }); 
 
 
