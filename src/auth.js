@@ -9,13 +9,15 @@ function validatePassword(event) {
     // Password should contain at least one letter, one number, and one special character
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
     if (!passwordRegex.test(password)) {
-        message.textContent = 'Password must 6 characters long and contain at least one letter, number, and special character';
+        message.style.color = 'red';
+        message.textContent = 'Password must 6 characters long, contain a letter, a number, and special character';
         event.preventDefault();
         return false;
     }
 
     // Check if passwords match
     if (password !== confirmPassword) {
+        message.style.color = 'red';
         message.textContent = 'Passwords do not match.';
         return false;
     }
@@ -61,7 +63,7 @@ signupForm.addEventListener('submit', (e) => {
         // User Creation 
         auth.createUserWithEmailAndPassword(email, password).then(cred => {
             const user = cred.user;
-            window.location.href = "index.html"; // TODO: change to main application page, after it is made ofc 
+           // window.location.href = "index.html"; // TODO: change to main application page, after it is made ofc 
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -73,5 +75,7 @@ signupForm.addEventListener('submit', (e) => {
         signupForm.reset();
     }
 }); 
+
+
 
 

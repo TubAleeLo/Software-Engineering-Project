@@ -13,6 +13,7 @@
         <form class="form-container" id="signup-form" onsubmit="return validatePassword(event)">
             <h2>Register</h2>
             
+            <p id="email-error" class="error-message" ></p>
             
             <!-- Email Input -->
             <input type="text" id="email" name="Email" placeholder="Email" required>
@@ -31,7 +32,7 @@
 
             <!--Error display message-->
             <p id="password-error" class="error-message"></p>
-            <p id="email-error" class="error-message" ></p>
+            
             
       
         </form>
