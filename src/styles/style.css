@@ -41,7 +41,7 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
   max-width: 250px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); 
   backdrop-filter: blur(12px); /* Increased blur for a softer look */
   background-color: rgba(252, 252, 252, 0.17);
   border: 1px #fff;
@@ -67,20 +67,10 @@ input {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
   backdrop-filter: blur(12px); /* Increased blur for a softer look */
   text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-  opacity: .5;              /* Initial opacity */
-  transition: opacity 0.5s ease; /* Smooth transition effect */
+  background-color: white;
 }
 
     
-input:hover {
-  opacity: 1;
-}
-
-input:focus,
-input:not(:placeholder-shown) {
-  opacity: 1;
-}
-
 /* Fancy heading */
 h1 {
   font-size: 3rem;
@@ -111,6 +101,12 @@ p:hover {
   color: #e6ffe6; /* Lighter green on hover */
 }
 
+.button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 7px; 
+  margin-top: 10px;
+}
 /* Button styling */
 button {
   border: none;
