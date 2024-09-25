@@ -1,3 +1,4 @@
+git 
 # Online Gardener Assistant - Web-based Application
 
 ## Core Features
@@ -185,3 +186,4 @@ Water Management Advice: Based on weather forecasts and plant types, offer guida
 
 5. **Continuous Deployment**:
    - Automate using **GitHub Actions** or **GitLab CI**.
+>>>>>>> origin/main
