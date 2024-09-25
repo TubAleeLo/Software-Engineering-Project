@@ -64,6 +64,7 @@ input {
   font-size: 12pt;
   border-radius: 5000px;
 
+
   padding: 10px 20px 10px 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
   backdrop-filter: blur(12px); /* Increased blur for a softer look */
@@ -72,6 +73,8 @@ input {
 
   opacity: .5;              /* Initial opacity */
   transition: opacity 0.5s ease; /* Smooth transition effect */
+
+
 
   padding: 10px 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -93,8 +96,6 @@ input:not(:placeholder-shown) {
 
 
 }
-
-
 
 
 /* Fancy heading */
