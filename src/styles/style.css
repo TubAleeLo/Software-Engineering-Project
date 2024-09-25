@@ -3,6 +3,45 @@ html {
   height: 100%;
 }
 
+/*Nav Bar Styles*/
+.navbar {
+  position: fixed;
+  display: flex;
+  flex-direction: row; /* Changed to row for horizontal layout */
+  justify-content: space-between; /* Spread elements across the navbar */
+  align-items: right;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #55e05c;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.navbar a:hover {
+  background-color: #555;
+}
+.navbar .profile-icon {
+  width: 35px;
+  height: 35px;
+  margin-right: 2vw;
+  border-radius: 50%;
+  background-color: #bbb;
+  display: inline-block;
+}
+.navbar-links {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+/*Nav Bar Styles*/
+
 body {
   font-family: 'Poppins', Roboto, sans-serif;
   margin: 0;
@@ -37,11 +76,16 @@ body {
   justify-content: center;  /* Center horizontally */
   text-align: center;
   align-items: center;      /* Center vertically */
-  max-height: 300px;            /* Full viewport height */
   margin-top: 20px;
   margin-bottom: 20px;
+<<<<<<< HEAD:style.css
   max-width: 250px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+=======
+  min-height: 400px;            /* Full viewport height */
+  min-width: 295px;
+  max-width: 425px;
+>>>>>>> main:src/styles/style.css
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow */
   backdrop-filter: blur(12px); /* Increased blur for a softer look */
   background-color: rgba(252, 252, 252, 0.17);
@@ -146,7 +190,7 @@ button {
 }
 
 button:hover {
-  background-color: #1c6d1f; /* Darker green on hover */
+  background-color: #3e9b43; /* Darker green on hover */
   box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3); /* Stronger shadow */
   transform: translateY(-5px); /* Lift effect on hover */
 }
