@@ -81,12 +81,15 @@ body {
 <<<<<<< HEAD:style.css
   max-width: 250px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+<<<<<<< HEAD:src/styles/style.css
 =======
   min-height: 400px;            /* Full viewport height */
   min-width: 295px;
   max-width: 425px;
 >>>>>>> main:src/styles/style.css
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+=======
+>>>>>>> parent of 3e5c3ce (fixed probelms):style.css
   backdrop-filter: blur(12px); /* Increased blur for a softer look */
   background-color: rgba(252, 252, 252, 0.17);
   border: 1px #fff;
