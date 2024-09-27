@@ -1,9 +1,9 @@
 # Online Gardener Assistant - Web-based Application
 
-## Core Features
-
 ## File Hierarchy
 - JS and HTML files will be stored in ./src/, CSS will be stored in ./src/styles/
+- 
+## Core Features
 
 ### 1. User Profile and Garden Customization
 - **User Account Creation**: Allow users to create an account to store personal preferences, garden size, plant types, and gardening goals.
