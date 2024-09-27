@@ -1,3 +1,7 @@
 const navToRegister = () => {
-    window.location.href = "./registerTest.html"
+    window.location.href = "./register.html"
+}
+
+const navToLogin = () => {
+    window.location.href = "./login.html"
 }
