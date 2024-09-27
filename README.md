@@ -2,6 +2,9 @@
 
 ## Core Features
 
+## File Hierarchy
+- JS and HTML files will be stored in ./src/, CSS will be stored in ./src/styles/
+
 ### 1. User Profile and Garden Customization
 - **User Account Creation**: Allow users to create an account to store personal preferences, garden size, plant types, and gardening goals.
 - **Garden Information**: Users should input details about their garden (e.g., location, climate zone, soil type, garden layout, and plant types).
@@ -62,17 +65,10 @@ Water Management Advice: Based on weather forecasts and plant types, offer guida
 ## Platforms
 
 ### 1. **Web Application Framework**
-- **React** (for Frontend):
-  - **Why**: React is highly flexible, modular, and has a large ecosystem. It’s excellent for creating responsive, dynamic UIs with reusable components.
-  - **Alternative**: **Vue.js** (lightweight and simple for smaller projects) or **Angular** (more opinionated but robust).
-
-- **Node.js** (for Backend):
-  - **Why**: It handles asynchronous requests well, which is essential for calling multiple external APIs (weather, plant info, gardening routines). It also integrates well with frontend frameworks like React and supports scalable applications.
-  - **Alternative**: **Django** (Python) or **Flask** for Python preference and AI/ML integration.
 
 ### 2. **Database**
-- **MongoDB**:
-  - **Why**: A NoSQL database like MongoDB allows for flexibility in handling unstructured data, ideal for user profiles, plant data, and dynamic datasets.
+- **Firebase**:
+  - **Why**: A NoSQL database like Firebase allows for flexibility in handling unstructured data, ideal for user profiles, plant data, and dynamic datasets.
   - **Alternative**: **PostgreSQL** for a relational database with more complex querying capabilities.
 
 ### 3. **Hosting & Deployment Platforms**
