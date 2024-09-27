@@ -2,7 +2,7 @@
 
 ## File Hierarchy
 - JS and HTML files will be stored in ./src/, CSS will be stored in ./src/styles/
-- 
+ 
 ## Core Features
 
 ### 1. User Profile and Garden Customization
