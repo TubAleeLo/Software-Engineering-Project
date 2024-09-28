@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title> Leaf Logic</title>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Leaf Logic</h1>
+      <p>Smart Plant Care Assistant</p>
+      
+      <form class="form-container" id="login-form">
+        <h2>Login</h2>
+  
+        <!-- Username Input -->
+        <input type="email" id="login-email" name="email" placeholder="Email" required>
+  
+        <!-- Password Input -->
+        <input type="password" id="login-password" name="password" placeholder="Password" required>
+
+        <!-- Container for Login and Register buttons -->
+        <div class="button-container">
+
+          <!-- Submit Button -->
+          <button type="submit">Login</button>
+
+          <!-- Create Account Button -->
+          <button type="button" id="create-account" onclick="navToRegister()">Register</button>
+
+        </div>  
+
+        <!-- Error message -->
+        <p id="error-message" style="color: red; display: none;">Invalid username or password!</p>
+
+      </form>
+
+    
+
+    </div>
+  </body>
+</html>
+
+<!--Load Scripts After Content-->
+
+<!--Firebase Scripts https://firebase.google.com/docs/web/setup#available-libraries-->
+<!--Initializes firebase authentification Using 8.10.0 for namespaced compatability-->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script>
+
+    //Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyDsQrVU-IPQtI6nIEDR6tbTz_PV-X0Bzac",
+    authDomain: "projectw-6c4cd.firebaseapp.com",
+    projectId: "projectw-6c4cd",
+    storageBucket: "projectw-6c4cd.appspot.com",
+    appId: "1:190844827500:web:4af77a2d52dfd84248e549"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+</script>
+<script src="./auth.js"></script>
+<script src="index.js"></script>
