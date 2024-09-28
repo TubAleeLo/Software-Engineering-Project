@@ -16,7 +16,7 @@ button {
 
 
   #password-error, #email-error {
-    margin: 0 auto auto auto;
+    margin: 0 auto 15px auto;
     height: 40px; /* Adjust height as necessary */
     font-size: 10pt;
     color: red;
