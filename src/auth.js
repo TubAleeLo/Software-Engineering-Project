@@ -105,11 +105,14 @@ loginForm.addEventListener('submit', (e) => {
         const errorMessage = error.message;
         console.error("Error logging in:", errorCode, errorMessage);
         // Handle error messages here
-    });
-    
+    });  
     
 });
 
+// Listen for auth status changes
+auth.onAuthStateChanged(user => {
+    console.log(user);
+});
 
 
 
