@@ -10,22 +10,20 @@
 
 <body>
     <div>
-        <form class="form-container" id="signup-form" onsubmit="return validatePassword(event)">
+        <form class="form-container" id="reg-signup-form">
             <h2>Register</h2>
             
             <!--Email Error display message-->
             <p id="email-error" class="error-message" ></p>
             
             <!-- Email Input -->
-            <input type="text" id="email" name="Email" placeholder="Email" required>
-            
-            
+            <input type="text" id="reg-email" name="Email" placeholder="Email" required>
+                  
             <!-- Password Input -->
-            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="password" id="reg-password" name="password" placeholder="Password" required>
       
-            
             <!--Confirm Password-->
-            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" style="margin-bottom: 0;" required>
+            <input type="password" id="reg-confirm-password" name="confirm-password" placeholder="Confirm Password" style="margin-bottom: 0;" required>
             
             <!--Password Error display message-->
             <p id="password-error" class="error-message"></p>
@@ -46,23 +44,8 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-<script>
 
-    //Firebase configuration
-    const firebaseConfig = {
-    apiKey: "AIzaSyDsQrVU-IPQtI6nIEDR6tbTz_PV-X0Bzac",
-    authDomain: "projectw-6c4cd.firebaseapp.com",
-    projectId: "projectw-6c4cd",
-    storageBucket: "projectw-6c4cd.appspot.com",
-    appId: "1:190844827500:web:4af77a2d52dfd84248e549"
-    };
-
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const db = firebase.firestore();
-
-</script>
-<script src="./auth.js"></script>
+<script src="auth.js"></script>
+<script src="register.js"></script>
 
 
