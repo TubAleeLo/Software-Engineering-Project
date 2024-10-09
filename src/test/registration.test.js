@@ -1,11 +1,19 @@
-// npx mocha ./src/test/registration.test.js
-import { expect } from 'chai';
-import { JSDOM } from 'jsdom';
-import fs from 'fs';
-import path from 'path';
+// test/registration-validation.test.js
+let expect;
 
-// Read HTML file
-const html = fs.readFileSync(path.resolve(__dirname, '../src/register.html'), 'utf8');
+before(async () => {
+  // Dynamically import chai (ESM module)
+  const chaiModule = await import('chai');
+  expect = chaiModule.expect;
+});
+
+const { JSDOM } = require('jsdom');
+const fs = require('fs');
+const path = require('path');
+
+// Read your HTML file (assuming it's named registration.html)
+const html = fs.readFileSync(path.resolve(__dirname, '../register.html'), 'utf8');
+
 
 // Set up JSDOM and expose document and window globals
 const { window } = new JSDOM(html, { runScripts: 'dangerously', resources: 'usable' });
@@ -13,7 +21,7 @@ global.window = window;
 global.document = window.document;
 
 // Import your validation functions
-import { validateEmail, validatePassword } from '../src/register.js';
+const { validateEmail, validatePassword } = require('../register.js');
 
 describe('Registration Form Validation', () => {
   beforeEach(() => {
