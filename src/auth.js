@@ -1,6 +1,7 @@
 // Global variables
 let auth;
 let db;
+let storage;
 
 // Function to fetch Firebase configuration and initialize Firebase
 async function fetchFirebaseConfig() {
@@ -11,9 +12,10 @@ async function fetchFirebaseConfig() {
         // Initialize Firebase with the fetched config
         firebase.initializeApp(config);
 
-        // Initialize Firebase Auth and Firestore
+        // Initialize Firebase Auth, Firestore, and Storage
         auth = firebase.auth(); // Now auth is initialized
         db = firebase.firestore(); // Now db is initialized
+        storage = firebase.storage(); // Now storage is initialized
 
         console.log('Firebase Auth initialized');
     } catch (error) {
@@ -26,8 +28,9 @@ fetchFirebaseConfig().then(() => {
     setupEventListeners(); // Now set up event listeners only after auth is initialized
 });
 
-
 // Listen for auth status changes
 auth.onAuthStateChanged(user => {
     console.log(user);
 });
+
+module.exports = { auth, db, storage };
