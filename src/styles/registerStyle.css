@@ -1,61 +1,80 @@
 /* Button styling */
 button {
-    border: none;
-    width: fit-content;
-    justify-content: center;
-    background-color: #378d3d; /* Brighter green */
-    padding: 10px 15px;
-    margin: 5px 5px 5px 5px;
-    border-radius: 30px;
-    font-size: 1.1rem;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Fancy button shadow */
-  }
+  border: none;
+  width: fit-content;
+  justify-content: center;
+  background-color: #378d3d; /* Brighter green */
+  padding: 10px 15px;
+  margin: 5px 5px 5px 5px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Fancy button shadow */
+}
 
+button:hover {
+  background-color: #3e9b43; /* Darker green on hover */
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+  transform: translateY(-5px); /* Lift effect on hover */
+}
 
-  #password-error, #email-error {
-    margin: 0 auto auto auto;
-    height: 40px; /* Adjust height as necessary */
-    font-size: 10pt;
-    color: red;
-    max-width: 300px;
-    visibility: hidden; /* Start hidden, but space is reserved */
+/* Specific container for buttons in the form */
+.button-container {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 10px; /* Space between buttons */
+  align-items: center; /* Center buttons horizontally */
+}
+
+/* Error message styling */
+#password-error, #email-error {
+  margin: 0 auto;
+  height: 40px; /* Adjust height as necessary */
+  font-size: 10pt;
+  color: red;
+  max-width: 300px;
+  visibility: hidden; /* Start hidden, but space is reserved */
 }
 
 #password-error.visible, #email-error.visible {
-    visibility: visible;
+  visibility: visible;
 }
 
-  
+/* Form container styling */
 .form-container {
-  margin-left: auto;
-  margin-right: auto; /*Aligns login form to center*/
-  flex-direction: column;
-  justify-content: center;  /* Center horizontally */
-  text-align: center;
-  align-items: center;      /* Center vertically */
-  margin-top: 20px;
-  margin-bottom: 20px;
-  min-height: 400px;            /* Full viewport height */
-  min-width: 295px;
-  max-width: 425px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow */
-  backdrop-filter: blur(12px); /* Increased blur for a softer look */
-  background-color: rgba(252, 252, 252, 0.17);
-  border: 1px #fff;
-  transition: background-color 0.3s ease;
+margin-left: auto;
+margin-right: auto; /* Aligns form to center */
+flex-direction: column;
+justify-content: center;  /* Center horizontally */
+text-align: center;
+align-items: center;      /* Center vertically */
+margin-top: 20px;
+margin-bottom: 20px;
+min-height: 400px;            /* Full viewport height */
+min-width: 295px;
+max-width: 425px;
+box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+backdrop-filter: blur(12px); /* Increased blur for a softer look */
+background-color: rgba(252, 252, 252, 0.17);
+border: 1px #fff;
+transition: background-color 0.3s ease;
 }
 
+/* Input fields */
 input {
-  margin-bottom: 35px;
+margin-bottom: 35px;
+padding: 10px;
+border-radius: 5px;
+border: 1px solid #ddd;
 }
 
 /* Style the form itself */
 form {
-  display: flex;
-  gap: 10px;         /* Adds space between form elements */
-  padding: 20px;
-  border-radius: 8px;
+display: flex;
+flex-direction: column; /* Make elements stack vertically */
+gap: 10px;         /* Adds space between form elements */
+padding: 20px;
+border-radius: 8px;
 }
