@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css">
-    
+
   </head>
 
   <body>
     <div class="container">
       <h1>Leaf Logic</h1>
       <p>Smart Plant Care Assistant</p>
-      
+
       <form class="form-container" id="login-form">
         <h2>Login</h2>
-  
+
         <!-- Username Input -->
         <input type="email" id="login-email" name="email" placeholder="Email" required>
-  
+
         <!-- Password Input -->
         <input type="password" id="login-password" name="password" placeholder="Password" required>
 
@@ -30,16 +30,16 @@
           <button type="submit">Login</button>
 
           <!-- Create Account Button -->
-          <button type="button" id="create-account" onclick="navToRegister()">Register</button>
+          <button onclick="window.location.href='register.html'">Register</button>
 
-        </div>  
+        </div>
 
         <!-- Error message -->
         <p id="error-message" style="color: red; display: none;">Invalid username or password!</p>
 
       </form>
 
-    
+
 
     </div>
   </body>
