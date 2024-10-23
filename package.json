@@ -3,12 +3,12 @@
     "cors": "^2.8.5"
   },
   "devDependencies": {
-    "chai": "^5.1.2",
+    "chai": "^4.3.7",
     "jsdom": "^25.0.1",
     "mocha": "^10.7.3"
   },
   "scripts": {
-    "test": "mocha ./src/test/registration.test.js"
+    "test": "mocha ./src/test/registration.test.js",
+    "test1": "mocha ./src/test/chatbot_input.test.js"
   }
-
 }
