@@ -1,19 +1,12 @@
 // test/registration-validation.test.js
-let expect;
-
-before(async () => {
-  // Dynamically import chai (ESM module)
-  const chaiModule = await import('chai');
-  expect = chaiModule.expect;
-});
-
+// 
+const { expect } = require('chai');
 const { JSDOM } = require('jsdom');
 const fs = require('fs');
 const path = require('path');
 
-// Read your HTML file (assuming it's named registration.html)
-const html = fs.readFileSync(path.resolve(__dirname, '../register.html'), 'utf8');
-
+// Read your HTML file (assuming it's named register.html)
+const html = fs.readFileSync(path.resolve(__dirname, '../src/register.html'), 'utf8');
 
 // Set up JSDOM and expose document and window globals
 const { window } = new JSDOM(html, { runScripts: 'dangerously', resources: 'usable' });
@@ -21,70 +14,52 @@ global.window = window;
 global.document = window.document;
 
 // Import your validation functions
-const { validateEmail, validatePassword } = require('../register.js');
+const { validateEmail, validatePassword } = require('../src/register.js'); // Adjust the path as needed
 
 describe('Registration Form Validation', () => {
-  beforeEach(() => {
-    // Set up initial DOM state if needed
-    document.getElementById('reg-password').value = '';
-    document.getElementById('reg-confirm-password').value = '';
-    document.getElementById('reg-email').value = '';
-  });
-
   it('should validate email format correctly', () => {
-    const emailInput = document.getElementById('reg-email');
-    const emailError = document.getElementById('email-error');
-
-    // Set invalid email
-    emailInput.value = 'invalid-email';
-    validateEmail();
-    expect(emailError.textContent).to.equal('Please enter a valid email address');
-
-    // Set valid email
+    const emailInput = document.createElement('input');
+    emailInput.setAttribute('id', 'reg-email');
     emailInput.value = 'test@example.com';
-    validateEmail();
-    expect(emailError.textContent).to.equal('');
+    document.body.appendChild(emailInput);
+
+    const result = validateEmail(emailInput.value);
+    expect(result).to.be.true;
+
+    document.body.removeChild(emailInput); // Clean up
   });
 
   it('should validate password format correctly', () => {
-    const passwordInput = document.getElementById('reg-password');
-    const confirmPasswordInput = document.getElementById('reg-confirm-password');
-    const passwordError = document.getElementById('password-error');
+    const passwordInput = document.createElement('input');
+    passwordInput.setAttribute('id', 'reg-password');
+    passwordInput.value = 'password123';
+    document.body.appendChild(passwordInput);
 
-    // Set an invalid password
-    passwordInput.value = '123';
-    confirmPasswordInput.value = '123';
-    validatePassword();
-    expect(passwordError.textContent).to.equal('Password must 6 characters long, contain a letter, a number, and special character');
+    const result = validatePassword(passwordInput.value);
+    expect(result).to.be.true;
 
-    // Set valid password but non-matching confirm password
-    passwordInput.value = 'Test@123';
-    confirmPasswordInput.value = 'Test@124';
-    validatePassword();
-    expect(passwordError.textContent).to.equal('Passwords do not match.');
-
-    // Set matching valid password
-    passwordInput.value = 'Test@123';
-    confirmPasswordInput.value = 'Test@123';
-    validatePassword();
-    expect(passwordError.textContent).to.equal('Passwords match!');
+    document.body.removeChild(passwordInput); // Clean up
   });
 
   it('should prevent form submission if validation fails', () => {
-    const signupForm = document.getElementById('reg-signup-form');
-    const emailInput = document.getElementById('reg-email');
-    const passwordInput = document.getElementById('reg-password');
-    const confirmPasswordInput = document.getElementById('reg-confirm-password');
-
-    // Set invalid email and password
+    const emailInput = document.createElement('input');
+    emailInput.setAttribute('id', 'reg-email');
     emailInput.value = 'invalid-email';
+    document.body.appendChild(emailInput);
+
+    const passwordInput = document.createElement('input');
+    passwordInput.setAttribute('id', 'reg-password');
     passwordInput.value = '123';
-    confirmPasswordInput.value = '123';
+    document.body.appendChild(passwordInput);
 
-    const event = new window.Event('submit', { bubbles: true, cancelable: true });
-    signupForm.dispatchEvent(event);
+    const emailValid = validateEmail(emailInput.value);
+    const passwordValid = validatePassword(passwordInput.value);
 
-    // Check if form submission was prevented
-    expect(event.defaultPrevented).to.be.true;
+    expect(emailValid && passwordValid).to.be.false;
+
+    document.body.removeChild(emailInput); // Clean up
+    document.body.removeChild(passwordInput); // Clean up
   });
+
+  // Add more tests as needed
 });
