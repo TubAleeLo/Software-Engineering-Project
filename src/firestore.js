@@ -9,6 +9,9 @@ const { db, storage } = require('./auth');
  * @param {string} location - The location of the plant.
  * @returns {Promise<void>}
  */
+
+// This is the function that will send user data to the firestore database,
+// which will then allow the user to see their plant data on the website. 
 async function createPlantEntry(userId, photoUrl, name, location) {
     try {
         await db.collection('users').doc(userId).collection('plants').add({
