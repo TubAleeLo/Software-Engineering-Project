@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Care Assistant</title>
+    <link rel="stylesheet" href="/src/styles/index-v2.css">
+    <style>
+        /* Basic styling for the chat interface */
+        #chatbox {
+            width: 300px;
+            height: 400px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+        }
+        #user-input {
+            width: 300px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chatbox"></div>
+    <input type="text" id="user-input" placeholder="Ask about plant care..." />
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        async function sendMessage() {
+            const message = document.getElementById('user-input').value;
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: message })
+            });
+            const data = await response.json();
+            const chatbox = document.getElementById('chatbox');
+            chatbox.innerHTML += `<p><b>You:</b> ${message}</p>`;
+            chatbox.innerHTML += `<p><b>Assistant:</b> ${data.response}</p>`;
+            document.getElementById('user-input').value = '';
+            chatbox.scrollTop = chatbox.scrollHeight; // Scroll to bottom
+        }
+        async function sendMessage() {
+    const message = document.getElementById('user-input').value;
+    // Mimic API response for testing
+    const data = { response: "This is a sample response. How can I help with your plant care?" };
+    const chatbox = document.getElementById('chatbox');
+    chatbox.innerHTML += `<p><b>You:</b> ${message}</p>`;
+    chatbox.innerHTML += `<p><b>Assistant:</b> ${data.response}</p>`;
+    document.getElementById('user-input').value = '';
+    chatbox.scrollTop = chatbox.scrollHeight; // Scroll to bottom
+}
+
+    </script>
+</body>
+</html>
