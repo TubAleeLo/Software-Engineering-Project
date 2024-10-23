@@ -1,5 +1,14 @@
 {
   "dependencies": {
     "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "chai": "^5.1.2",
+    "jsdom": "^25.0.1",
+    "mocha": "^10.7.3"
+  },
+  "scripts": {
+    "test": "mocha ./src/test/registration.test.js"
   }
+
 }

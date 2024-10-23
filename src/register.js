@@ -67,6 +67,7 @@ function setupEventListeners() {
                 // Redirect or perform other actions here
             } catch (error) {
                 console.error("Error signing up:", error.code, error.message);
+                document.getElementById('reg-signup-form').reset();
             }
             signupForm.reset();
         }
@@ -74,3 +75,5 @@ function setupEventListeners() {
 
     // Add more event listeners here, if needed
 }
+// Export the validation functions
+module.exports = { validatePassword, validateEmail };

@@ -10,8 +10,33 @@
         "firebase-debug.*.log",
         "*.local"
       ],
-      "predeploy": [
-      ]
+      "predeploy": []
     }
-  ]
+  ],
+  "emulators": {
+    "auth": {
+      "port": 9099
+    },
+    "firestore": {
+      "port": 8099
+    },
+    "functions": {
+      "port": 5001
+    },
+    "ui": {
+      "enabled": true
+    },
+    "storage": {
+      "port": 9199,
+      "rules": "storage.rules"
+    },
+    "singleProjectMode": true
+  },
+  "firestore": {
+    "rules": "firebase.json",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
 }
