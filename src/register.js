@@ -67,6 +67,7 @@ function setupEventListeners() {
                 // Redirect or perform other actions here
             } catch (error) {
                 console.error("Error signing up:", error.code, error.message);
+                document.getElementById('reg-signup-form').reset();
             }
             signupForm.reset();
         }
