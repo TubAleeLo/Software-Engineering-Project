@@ -1,23 +1,18 @@
 <!DOCTYPE html>
-<head>
-    <title>Register</title>
+<html lang="en">
+  <head>
+    <title>Leaf Logic - Register</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link href="./styles/style.css" rel="stylesheet">
-    <link href="./styles/registerStyle.css" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/registerStyle.css">
+  </head>
 
-<body>
-    <!-- Nav Bar -->
+  <body>
+    <!-- Simplified Nav Bar for Register Page (removed Login button) -->
     <div class="navbar">
-        <a href="landingpage.html">Home</a>
-        <div class="navbar-links">
-            <a href="#">Features</a>
-            <a href="#">About</a>
-            <a href="login.html">Login</a> <!-- Login Button in the Navbar -->
-            <div class="profile-icon"></div>
-        </div>
+      <a href="landingpage.html">Home</a>
     </div>
 
     <!-- Form Section -->
@@ -35,7 +30,7 @@
             <input type="password" id="reg-password" name="password" placeholder="Password" required>
 
             <!-- Confirm Password -->
-            <input type="password" id="reg-confirm-password" name="confirm-password" placeholder="Confirm Password" style="margin-bottom: 0;" required>
+            <input type="password" id="reg-confirm-password" name="confirm-password" placeholder="Confirm Password" required>
 
             <!-- Password Error display message -->
             <p id="password-error" class="error-message"></p>
@@ -43,18 +38,17 @@
             <!-- Submit Button -->
             <button type="submit">Register</button>
 
-            <!-- Login Button inside the form -->
+            <!-- Back to Login Button -->
             <button type="button" onclick="window.location.href='login.html'">Back to Login</button>
-
         </form>
     </div>
 
-</body>
+    <!-- Load Scripts After Content -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
-<!-- Load Scripts After Content -->
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-
-<script src="auth.js"></script>
-<script src="register.js"></script>
+    <script src="auth.js"></script>
+    <script src="register.js"></script>
+  </body>
+</html>
