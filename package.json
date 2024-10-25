@@ -11,13 +11,7 @@
     "mocha": "^10.7.3"
   },
   "scripts": {
-<<<<<<< HEAD
-    "test": "mocha ./src/test/*.test.js"
-  },
-  "private": true
-=======
     "test": "mocha ./src/test/registration.test.js",
     "test1": "mocha ./src/test/chatbot_input.test.js"
   }
->>>>>>> tmayesiv
 }
