@@ -75,3 +75,5 @@ function setupEventListeners() {
 
     // Add more event listeners here, if needed
 }
+// Export the validation functions
+module.exports = { validatePassword, validateEmail };
