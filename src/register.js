@@ -7,7 +7,7 @@ function validatePassword() {
     const password = document.getElementById('reg-password').value;
     const confirmPassword = document.getElementById('reg-confirm-password').value;
     const message = document.getElementById('password-error');
-    
+
     // Reset error messages
     message.classList.add('visible');
 
@@ -36,7 +36,7 @@ function validateEmail() {
     const emailError = document.getElementById('email-error');
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
+
     // Check if the email is valid
     if (!emailRegex.test(email)) {
         emailError.textContent = 'Please enter a valid email address';
@@ -65,6 +65,13 @@ function setupEventListeners() {
             try {
                 const cred = await auth.createUserWithEmailAndPassword(email, password);
                 const user = cred.user;
+
+                // Write user data to the database
+                await set(ref(database, 'users/' + user.uid), {
+                    email: email,
+                    createdAt: new Date().toISOString(),
+                });
+
                 console.log('User created:', user);
                 // Redirect or perform other actions here
             } catch (error) {

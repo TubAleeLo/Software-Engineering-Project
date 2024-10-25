@@ -2,6 +2,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.21.1",
+    "firebase": "^11.0.1",
     "openai": "^4.68.3",
     "readline": "^1.3.0"
   },
@@ -12,6 +13,7 @@
   },
   "scripts": {
     "test": "mocha ./src/test/registration.test.js",
-    "test1": "mocha ./src/test/chatbot_input.test.js"
+    "test1": "mocha ./src/test/chatbot_input.test.js",
+    "test2": "mocha ./src/test/userValidation.test.js"
   }
 }
