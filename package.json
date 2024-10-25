@@ -8,7 +8,8 @@
     "mocha": "^10.7.3"
   },
   "scripts": {
-    "test": "mocha ./src/test/registration.test.cjs"
+    "test": "mocha ./src/test/*.test.cjs",
+    "test-plant": "mocha ./src/test/plantentry.test.cjs"
   },
   "private": true
 }
