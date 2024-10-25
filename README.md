@@ -1,7 +1,20 @@
 # Online Gardener Assistant - Web-based Application
 
+
 ## File Hierarchy
 - JS and HTML files will be stored in ./src/, CSS will be stored in ./src/styles/
+
+## Development Environment 
+- VS Code.
+- *Use `npm install` in the project root to install npm dependencies.
+- *Use the commented code to get aquanited with the project. 
+
+
+## Testing Environtment
+- *To initialize the firebase emlator, use `firebase emulator:start` to conduct backend testing.
+- *Use Live Server to launch the front end to interact with the UI.
+- **Additonal Tests 
+- **Mocha and JSDom Automatic: user registration
  
 ## Core Features
 

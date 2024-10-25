@@ -3,7 +3,6 @@ document.getElementById('reg-email').addEventListener('input', validateEmail);
 document.getElementById('reg-password').addEventListener('input', validatePassword);
 document.getElementById('reg-confirm-password').addEventListener('input', validatePassword);
 
-
 function validatePassword() {
     const password = document.getElementById('reg-password').value;
     const confirmPassword = document.getElementById('reg-confirm-password').value;
@@ -50,6 +49,9 @@ function validateEmail() {
     }
 }
 
+// Export the validation functions
+module.exports = { validatePassword, validateEmail };
+
 // Function to set up event listeners
 function setupEventListeners() {
     const signupForm = document.getElementById('reg-signup-form');
@@ -75,5 +77,3 @@ function setupEventListeners() {
 
     // Add more event listeners here, if needed
 }
-// Export the validation functions
-module.exports = { validatePassword, validateEmail };
