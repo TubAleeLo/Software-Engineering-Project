@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Care Assistant</title>
+    <style>
+        /* Basic styling for the chat interface */
+        #chatbox {
+            width: 400px;
+            height: 500px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+        }
+        #user-input {
+            width: 300px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chatbox"></div>
+    <input type="text" id="user-input" placeholder="Ask about plant care..." />
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        // Function to send a message to the server and display the response
+        async function sendMessage() {
+            const message = document.getElementById('user-input').value;
+            if (!message.trim()) return;  // Ignore empty messages
+
+            // Display user's message in the chatbox
+            displayMessage('You', message);
+
+            // Send user message to the server (Node.js backend)
+            try {
+                const response = await fetch('http://localhost:3000/ask-assistant', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message })
+                });
+
+                const data = await response.json();
+                // Display assistant's response in the chatbox
+                displayMessage('Assistant', data.response);
+            } catch (error) {
+                console.error('Error:', error);
+                displayMessage('Error', 'Something went wrong. Please try again.');
+            }
+
+            // Clear the input field
+            document.getElementById('user-input').value = '';
+        }
+
+        // Function to display messages in the chatbox
+        function displayMessage(role, message) {
+            const chatbox = document.getElementById('chatbox');
+            chatbox.innerHTML += `<p><b>${role}:</b> ${message}</p>`;
+            chatbox.scrollTop = chatbox.scrollHeight;  // Scroll to bottom
+        }
+    </script>
+</body>
+</html>

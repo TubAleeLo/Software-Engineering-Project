@@ -1,7 +1,20 @@
 # Online Gardener Assistant - Web-based Application
 
+
 ## File Hierarchy
 - JS and HTML files will be stored in ./src/, CSS will be stored in ./src/styles/
+
+## Development Environment 
+- VS Code.
+- *Use `npm install` in the project root to install npm dependencies.
+- *Use the commented code to get aquanited with the project. 
+
+
+## Testing Environment
+- *To initialize the firebase emlator, use `firebase emulator:start` to conduct backend testing.
+- *Use Live Server to launch the front end to interact with the UI.
+- **Additonal Tests 
+- **Mocha and JSDom Automatic: user registration
  
 ## Core Features
 
@@ -181,3 +194,8 @@ Water Management Advice: Based on weather forecasts and plant types, offer guida
 
 5. **Continuous Deployment**:
    - Automate using **GitHub Actions** or **GitLab CI**.
+
+## How to Test AI Assistant
+
+In the terminal, run the command 'node chatbot_draft.mjs' and then open http://localhost:3000
+This will open your browser with the file chatbot_draft.html, you can then test the chatbot

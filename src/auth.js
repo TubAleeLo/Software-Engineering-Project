@@ -1,81 +1,41 @@
-function validatePassword(event) {
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirm-password').value;
-    const message = document.getElementById('password-error');
-    
-    // Reset error messages
-    message.classList.add('visible');
+// Define the URL for the Firebase configuration Testing and Emulation
+const firebaseConfigUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') 
+    ? 'http://localhost:5001/projectw-6c4cd/us-central1/getFirebaseConfig' 
+    : 'https://us-central1-projectw-6c4cd.cloudfunctions.net/getFirebaseConfig';
 
-    // Password should contain at least one letter, one number, and one special character
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-    if (!passwordRegex.test(password)) {
-        message.style.color = 'red';
-        message.textContent = 'Password must 6 characters long, contain a letter, a number, and special character';
-        event.preventDefault();
-        return false;
-    }
+// Global variables
+let auth;
+let db;
+let storage;
 
-    // Check if passwords match
-    if (password !== confirmPassword) {
-        message.style.color = 'red';
-        message.textContent = 'Passwords do not match.';
-        return false;
-    }
+// Function to fetch Firebase configuration and initialize Firebase
+async function fetchFirebaseConfig() {
+    try {
+        const response = await fetch(firebaseConfigUrl); 
+        const config = await response.json();
 
-    message.textContent = 'Passwords match!';
-    message.style.color = 'green';
-    return true;
-}
+        // Initialize Firebase with the fetched config
+        firebase.initializeApp(config);
 
-function validateEmail() {
-    const email = document.getElementById('email').value;
-    const emailError = document.getElementById('email-error');
+        // Initialize Firebase Auth, Firestore, and Storage
+        auth = firebase.auth(); // Now auth is initialized
+        db = firebase.firestore(); // Now db is initialized
+        storage = firebase.storage(); // Now storage is initialized
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-    // Check if the email is valid
-    if (!emailRegex.test(email)) {
-        emailError.textContent = 'Please enter a valid email address';
-        emailError.style.visibility = 'visible';  // Ensure the message is visible
-        return false;
-    } else {
-        emailError.textContent = ''; // Clear error message
-        emailError.style.visibility = 'hidden'; // Hide when valid
-        return true;
+        console.log('Firebase Auth initialized');
+    } catch (error) {
+        console.error("Error fetching Firebase config:", error);
     }
 }
 
-// Real-time validation as user types
-document.getElementById('email').addEventListener('input', validateEmail);
-document.getElementById('password').addEventListener('input', validatePassword);
-document.getElementById('confirm-password').addEventListener('input', validatePassword);
+// Call the fetchFirebaseConfig to initialize Firebase and set up envent listeners
+fetchFirebaseConfig().then(() => {
 
-
-const signupForm = document.getElementById('signup-form');
-signupForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const email = signupForm['email'].value;
-    const password = signupForm['password'].value;
-
-    
-    if (validateEmail() && validatePassword()) {
-        // User Creation 
-        auth.createUserWithEmailAndPassword(email, password).then(cred => {
-            const user = cred.user;
-           // window.location.href = "index.html"; // TODO: change to main application page, after it is made ofc 
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.error("Error signing up:", errorCode, errorMessage);
-            // Handle error messages here
-        });
-
-        signupForm.reset();
-    }
-}); 
-
-
-
-
+    auth.onAuthStateChanged(user => {
+        if (user != null) {
+            console.log("Auth State Changed" + user.email);
+        }
+        
+    });
+    //Set up event listeners, only after auth is initialized, here!
+});

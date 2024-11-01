@@ -1,43 +1,48 @@
 <!DOCTYPE html>
-<head>
-    <title>Register</title>
+<html lang="en">
+  <head>
+    <title>Leaf Logic - Register</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link href="./styles/style.css" rel="stylesheet">
-    <link href="./styles/registerStyle.css" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/registerStyle.css">
+  </head>
 
-<body>
-    <div>
-        <form class="form-container" id="signup-form" onsubmit="return validatePassword(event)">
+  <body>
+    <!-- Simplified Nav Bar for Register Page (removed Login button) -->
+    <div class="navbar">
+      <a href="landingpage.html">Home</a>
+    </div>
+
+    <!-- Form Section -->
+    <div class="container">
+        <form class="form-container" id="reg-signup-form">
             <h2>Register</h2>
-            
-            <p id="email-error" class="error-message" ></p>
-            
+
+            <!-- Email Error display message -->
+            <p id="email-error" class="error-message"></p>
+
             <!-- Email Input -->
-            <input type="text" id="email" name="Email" placeholder="Email" required>
-            
-            
+            <input type="text" id="reg-email" name="Email" placeholder="Email" required>
+
             <!-- Password Input -->
-            <input type="password" id="password" name="password" placeholder="Password" required>
-      
-            
-            <!--Confirm Password-->
-            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
-            
+            <input type="password" id="reg-password" name="password" placeholder="Password" required>
+
+            <!-- Confirm Password -->
+            <input type="password" id="reg-confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+
+            <!-- Password Error display message -->
+            <p id="password-error" class="error-message"></p>
 
             <!-- Submit Button -->
             <button type="submit">Register</button>
 
-            <!--Error display message-->
-            <p id="password-error" class="error-message"></p>
-            
-            
-      
+            <!-- Back to Login Button -->
+            <button type="button" onclick="window.location.href='login.html'">Back to Login</button>
         </form>
     </div>
-    
+
 </body>
 
 
@@ -48,23 +53,17 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-<script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
-    //Firebase configuration
-    const firebaseConfig = {
-    apiKey: "AIzaSyDsQrVU-IPQtI6nIEDR6tbTz_PV-X0Bzac",
-    authDomain: "projectw-6c4cd.firebaseapp.com",
-    projectId: "projectw-6c4cd",
-    storageBucket: "projectw-6c4cd.appspot.com",
-    appId: "1:190844827500:web:4af77a2d52dfd84248e549"
-    };
+<script src="auth.js"></script>
+<script src="register.js"></script>
 
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const db = firebase.firestore();
+    <!-- Load Scripts After Content -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
-</script>
-<script src="./auth.js"></script>
-
-
+    <script src="auth.js"></script>
+    <script src="register.js"></script>
+  </body>
+</html>
