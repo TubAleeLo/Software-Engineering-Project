@@ -1,0 +1,203 @@
+[debug] [2024-10-30T20:05:43.790Z] ----------------------------------------------------------------------
+[debug] [2024-10-30T20:05:43.793Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\zacha\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2024-10-30T20:05:43.793Z] CLI Version:   13.22.1
+[debug] [2024-10-30T20:05:43.793Z] Platform:      win32
+[debug] [2024-10-30T20:05:43.793Z] Node Version:  v20.11.0
+[debug] [2024-10-30T20:05:43.794Z] Time:          Wed Oct 30 2024 15:05:43 GMT-0500 (Central Daylight Time)
+[debug] [2024-10-30T20:05:43.794Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-10-30T20:05:43.797Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-10-30T20:05:43.894Z] Object ".emulators.storage" in "firebase.json" has unknown property: {"additionalProperty":"rules"}
+[debug] [2024-10-30T20:05:43.900Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-10-30T20:05:43.900Z] > authorizing via signed-in user (zacharydlilley@gmail.com)
+[debug] [2024-10-30T20:05:43.986Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-10-30T20:05:43.986Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2024-10-30T20:05:44.066Z] java version "17.0.8" 2023-07-18 LTS
+
+[debug] [2024-10-30T20:05:44.066Z] Java(TM) SE Runtime Environment (build 17.0.8+9-LTS-211)
+Java HotSpot(TM) 64-Bit Server VM (build 17.0.8+9-LTS-211, mixed mode, sharing)
+
+[debug] [2024-10-30T20:05:44.089Z] Parsed Java major version: 17
+[info] i  emulators: Starting emulators: auth, functions, firestore, storage, extensions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore, storage, extensions"}}
+[debug] [2024-10-30T20:05:44.091Z] Checked if tokens are valid: false, expires at: 1729832592940
+[debug] [2024-10-30T20:05:44.091Z] Checked if tokens are valid: false, expires at: 1729832592940
+[debug] [2024-10-30T20:05:44.091Z] > refreshing access token with scopes: []
+[debug] [2024-10-30T20:05:44.092Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-10-30T20:05:44.092Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-10-30T20:05:44.185Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-10-30T20:05:44.185Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-10-30T20:05:44.193Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/projectw-6c4cd [none]
+[debug] [2024-10-30T20:05:44.371Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/projectw-6c4cd 200
+[debug] [2024-10-30T20:05:44.371Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/projectw-6c4cd {"projectId":"projectw-6c4cd","projectNumber":"190844827500","displayName":"ProjectW","name":"projects/projectw-6c4cd","resources":{"hostingSite":"projectw-6c4cd","storageBucket":"projectw-6c4cd.appspot.com","locationId":"us-west3"},"state":"ACTIVE","etag":"1_7ec11a38-fe5f-41b4-a211-ff2ad8eabd8b"}
+[debug] [2024-10-30T20:05:44.385Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-10-30T20:05:44.385Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-10-30T20:05:44.385Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-10-30T20:05:44.385Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-10-30T20:05:44.385Z] [storage] Storage Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-10-30T20:05:44.385Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8099}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"storage":[{"address":"127.0.0.1","family":"IPv4","port":9199}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-10-30T20:05:44.391Z] [hub] writing locator at C:\Users\zacha\AppData\Local\Temp\hub-projectw-6c4cd.json
+[debug] [2024-10-30T20:05:44.399Z] [Extensions] Started Extensions emulator, this is a noop.
+[debug] [2024-10-30T20:05:44.403Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-10-30T20:05:44.403Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-10-30T20:05:44.403Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-10-30T20:05:44.404Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8099}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"storage":[{"address":"127.0.0.1","family":"IPv4","port":9199}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: database, hosting, pubsub, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mdatabase, hosting, pubsub, dataconnect\u001b[22m"}}
+[debug] [2024-10-30T20:05:44.408Z] defaultcredentials: writing to file C:\Users\zacha\AppData\Roaming\firebase\zacharydlilley_gmail_com_application_default_credentials.json
+[debug] [2024-10-30T20:05:44.411Z] Setting GAC to C:\Users\zacha\AppData\Roaming\firebase\zacharydlilley_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\zacha\\AppData\\Roaming\\firebase\\zacharydlilley_gmail_com_application_default_credentials.json"}}
+[debug] [2024-10-30T20:05:44.412Z] Checked if tokens are valid: true, expires at: 1730322343185
+[debug] [2024-10-30T20:05:44.412Z] Checked if tokens are valid: true, expires at: 1730322343185
+[debug] [2024-10-30T20:05:44.412Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/projectw-6c4cd/adminSdkConfig [none]
+[debug] [2024-10-30T20:05:44.844Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/projectw-6c4cd/adminSdkConfig 200
+[debug] [2024-10-30T20:05:44.844Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/projectw-6c4cd/adminSdkConfig {"projectId":"projectw-6c4cd","storageBucket":"projectw-6c4cd.appspot.com","locationId":"us-west3"}
+[debug] [2024-10-30T20:05:44.860Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-10-30T20:05:44.860Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2024-10-30T20:05:44.860Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\zacha\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.19.8.jar","--host","127.0.0.1","--port",8099,"--websocket_port",9150,"--project_id","projectw-6c4cd","--rules","C:\\Users\\zacha\\Documents\\ProjectW\\Software-Engineering-Project\\firebase.json","--single_project_mode",true,"--functions_emulator","127.0.0.1:5001"],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false,"shell":false,"port":8099} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\zacha\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.19.8.jar\",\"--host\",\"127.0.0.1\",\"--port\",8099,\"--websocket_port\",9150,\"--project_id\",\"projectw-6c4cd\",\"--rules\",\"C:\\\\Users\\\\zacha\\\\Documents\\\\ProjectW\\\\Software-Engineering-Project\\\\firebase.json\",\"--single_project_mode\",true,\"--functions_emulator\",\"127.0.0.1:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false,\"shell\":false,\"port\":8099}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[info] +  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
+[debug] [2024-10-30T20:05:51.497Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"storage"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-10-30T20:05:52.219Z] Temp file directory for storage emulator: C:\Users\zacha\AppData\Local\Temp/firebase/storage/blobs {"metadata":{"emulator":{"name":"storage"},"message":"Temp file directory for storage emulator: C:\\Users\\zacha\\AppData\\Local\\Temp/firebase/storage/blobs"}}
+[debug] [2024-10-30T20:05:52.225Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-10-30T20:05:52.225Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-10-30T20:05:52.225Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\zacha\\.cache\\firebase\\emulators\\ui-v1.14.0\\server\\server.mjs"],"optionalArgs":[],"joinArgs":false,"shell":false,"port":4000} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\zacha\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.14.0\\\\server\\\\server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false,\"shell\":false,\"port\":4000}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2024-10-30T20:05:52.349Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2024-10-30T20:05:52.349Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[debug] [2024-10-30T20:05:52.437Z] [Extensions] Connecting Extensions emulator, this is a noop.
+[info] i  functions: Watching "C:\Users\zacha\Documents\ProjectW\Software-Engineering-Project\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\zacha\\Documents\\ProjectW\\Software-Engineering-Project\\functions\" for Cloud Functions..."}}
+[debug] [2024-10-30T20:05:52.444Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2024-10-30T20:05:53.296Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^5.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-10-30T20:05:53.296Z] Building nodejs source
+[debug] [2024-10-30T20:05:53.296Z] Failed to find version of module node: reached end of search path C:\Users\zacha\Documents\ProjectW\Software-Engineering-Project\functions\node_modules
+[warn] !  functions: Your requested "node" version "18" doesn't match your global version "20". Using node@20 from host. 
+[debug] [2024-10-30T20:05:53.298Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-10-30T20:05:53.305Z] Found firebase-functions binary at 'C:\Users\zacha\Documents\ProjectW\Software-Engineering-Project\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8460
+
+[error] Error initializing Firebase configuration: TypeError: Cannot read properties of undefined (reading 'api_key')
+    at Object.<anonymous> (C:\Users\zacha\Documents\ProjectW\Software-Engineering-Project\functions\index.js:18:43)
+    at Module._compile (node:internal/modules/cjs/loader:1376:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)
+    at Module.load (node:internal/modules/cjs/loader:1207:32)
+    at Module._load (node:internal/modules/cjs/loader:1023:12)
+    at Module.require (node:internal/modules/cjs/loader:1235:19)
+    at require (node:internal/modules/helpers:176:18)
+    at loadModule (C:\Users\zacha\Documents\ProjectW\Software-Engineering-Project\functions\node_modules\firebase-functions\lib\runtime\loader.js:40:16)
+    at loadStack (C:\Users\zacha\Documents\ProjectW\Software-Engineering-Project\functions\node_modules\firebase-functions\lib\runtime\loader.js:157:23)
+    at C:\Users\zacha\Documents\ProjectW\Software-Engineering-Project\functions\node_modules\firebase-functions\lib\bin\firebase-functions.js:56:56
+
+[debug] [2024-10-30T20:05:54.008Z] Got response from /__/functions.yaml {"endpoints":{},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-10-30T20:05:59.039Z] defaultcredentials: writing to file C:\Users\zacha\AppData\Roaming\firebase\zacharydlilley_gmail_com_application_default_credentials.json
+[debug] [2024-10-30T20:05:59.040Z] Setting GAC to C:\Users\zacha\AppData\Roaming\firebase\zacharydlilley_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\zacha\\AppData\\Roaming\\firebase\\zacharydlilley_gmail_com_application_default_credentials.json"}}
+[info] +  functions: Loaded functions definitions from source: . {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: ."}}
+[debug] [2024-10-30T20:05:59.046Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬──────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI              │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth       │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Functions      │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions  │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:8099 │ http://127.0.0.1:4000/firestore  │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Storage        │ 127.0.0.1:9199 │ http://127.0.0.1:4000/storage    │
+├────────────────┼────────────────┼──────────────────────────────────┤
+│ Extensions     │ 127.0.0.1:5001 │ http://127.0.0.1:4000/extensions │
+└────────────────┴────────────────┴──────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500, 9150
+┌─────────────────────────┬───────────────┬─────────────────────┐
+│ Extension Instance Name │ Extension Ref │ View in Emulator UI │
+└─────────────────────────┴───────────────┴─────────────────────┘
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2024-10-30T20:45:05.521Z] [work-queue] {"queuedWork":["/projectw-6c4cd/us-central1/getFirebaseConfig-2024-10-30T20:45:05.521Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-10-30T20:45:05.521Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/projectw-6c4cd/us-central1/getFirebaseConfig-2024-10-30T20:45:05.521Z"],"workRunningCount":1}
+[debug] [2024-10-30T20:45:05.523Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-10-30T20:45:05.623Z] [work-queue] {"queuedWork":["/projectw-6c4cd/us-central1/getFirebaseConfig-2024-10-30T20:45:05.623Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-10-30T20:45:05.624Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/projectw-6c4cd/us-central1/getFirebaseConfig-2024-10-30T20:45:05.623Z"],"workRunningCount":1}
+[debug] [2024-10-30T20:45:05.624Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-10-30T20:45:16.511Z] [work-queue] {"queuedWork":["/projectw-6c4cd/us-central1/getFirebaseConfig-2024-10-30T20:45:16.511Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-10-30T20:45:16.511Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/projectw-6c4cd/us-central1/getFirebaseConfig-2024-10-30T20:45:16.511Z"],"workRunningCount":1}
+[debug] [2024-10-30T20:45:16.512Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-10-30T20:46:34.585Z] [work-queue] {"queuedWork":["/projectw-6c4cd/us-central1/getFirebaseConfig-2024-10-30T20:46:34.585Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-10-30T20:46:34.585Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/projectw-6c4cd/us-central1/getFirebaseConfig-2024-10-30T20:46:34.585Z"],"workRunningCount":1}
+[debug] [2024-10-30T20:46:34.585Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-10-30T20:46:34.585Z] [work-queue] {"queuedWork":["/projectw-6c4cd/us-central1/getFirebaseConfig-2024-10-30T20:46:34.585Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-10-30T20:46:34.586Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/projectw-6c4cd/us-central1/getFirebaseConfig-2024-10-30T20:46:34.585Z"],"workRunningCount":1}
+[debug] [2024-10-30T20:46:34.586Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-10-30T20:47:33.563Z] [work-queue] {"queuedWork":["/projectw-6c4cd/us-central1/getFirebaseConfig-2024-10-30T20:47:33.563Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-10-30T20:47:33.563Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/projectw-6c4cd/us-central1/getFirebaseConfig-2024-10-30T20:47:33.563Z"],"workRunningCount":1}
+[debug] [2024-10-30T20:47:33.564Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-10-30T20:49:10.044Z] [work-queue] {"queuedWork":["/projectw-6c4cd/us-central1/getFirebaseConfig-2024-10-30T20:49:10.044Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-10-30T20:49:10.044Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/projectw-6c4cd/us-central1/getFirebaseConfig-2024-10-30T20:49:10.044Z"],"workRunningCount":1}
+[debug] [2024-10-30T20:49:10.044Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-10-30T20:49:10.080Z] [work-queue] {"queuedWork":["/projectw-6c4cd/us-central1/getFirebaseConfig-2024-10-30T20:49:10.080Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-10-30T20:49:10.080Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/projectw-6c4cd/us-central1/getFirebaseConfig-2024-10-30T20:49:10.080Z"],"workRunningCount":1}
+[debug] [2024-10-30T20:49:10.080Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-10-30T21:19:13.523Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:19:13.603Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:19:36.318Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:19:36.329Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:19:39.417Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:20:00.095Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:20:00.101Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:21:35.892Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:21:35.893Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:21:40.927Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:21:40.950Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:21:45.156Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:22:45.990Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:22:45.991Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:28:51.851Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:28:51.885Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:28:59.044Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:28:59.100Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:29:00.874Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:29:00.875Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:29:18.769Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:29:18.774Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:29:22.182Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:29:47.770Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:29:47.771Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:29:53.206Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:29:53.214Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:30:02.100Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:30:02.107Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:30:09.272Z] Functions emulator received unknown request at path /your-project-id/us-central1/getFirebaseConfig
+[debug] [2024-10-30T21:31:01.821Z] Received signal SIGHUP 1
