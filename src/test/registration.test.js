@@ -14,39 +14,50 @@ global.document = window.document;
 // Import your validation functions
 const { validateEmail, validatePassword } = require('../register.js'); // Adjust the path as needed
 
+// Sample data for testing
+const emailSamples = [
+  'test@example.com', 'invalid-email', 'user@domain.com', 'user@domain', 'user@.com',
+  // Add more email samples here
+];
+
+const passwordSamples = [
+  { password: 'Password123!', confirmPassword: 'Password123!' },
+  { password: '123', confirmPassword: '123' },
+  { password: 'Password!', confirmPassword: 'Password!' },
+  { password: 'Password123', confirmPassword: 'Password123' },
+  { password: 'Password123!', confirmPassword: 'Password123' },
+  // Add more password samples here
+];
+
 describe('Registration Form Validation', () => {
-  it('should validate email format correctly', () => {
-    const emailInput = document.getElementById('reg-email');
-    emailInput.value = 'test@example.com';
+  emailSamples.forEach((email, index) => {
+    it(`should validate email format correctly for sample ${index + 1}`, () => {
+      const emailInput = document.getElementById('reg-email');
+      emailInput.value = email;
 
-    const result = validateEmail();
-    expect(result).to.be.true;
+      const result = validateEmail();
+      if (email.includes('@') && email.includes('.')) {
+        expect(result).to.be.true;
+      } else {
+        expect(result).to.be.false;
+      }
+    });
   });
 
-  it('should validate password format correctly', () => {
-    const passwordInput = document.getElementById('reg-password');
-    const confirmPasswordInput = document.getElementById('reg-confirm-password');
-    passwordInput.value = 'Password123!';
-    confirmPasswordInput.value = 'Password123!';
+  passwordSamples.forEach((sample, index) => {
+    it(`should validate password format correctly for sample ${index + 1}`, () => {
+      const passwordInput = document.getElementById('reg-password');
+      const confirmPasswordInput = document.getElementById('reg-confirm-password');
+      passwordInput.value = sample.password;
+      confirmPasswordInput.value = sample.confirmPassword;
 
-    const result = validatePassword();
-    expect(result).to.be.true;
+      const result = validatePassword();
+      const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+      if (passwordRegex.test(sample.password) && sample.password === sample.confirmPassword) {
+        expect(result).to.be.true;
+      } else {
+        expect(result).to.be.false;
+      }
+    });
   });
-
-  it('should prevent form submission if validation fails', () => {
-    const emailInput = document.getElementById('reg-email');
-    emailInput.value = 'invalid-email';
-
-    const passwordInput = document.getElementById('reg-password');
-    const confirmPasswordInput = document.getElementById('reg-confirm-password');
-    passwordInput.value = '123';
-    confirmPasswordInput.value = '123';
-
-    const emailValid = validateEmail();
-    const passwordValid = validatePassword();
-
-    expect(emailValid && passwordValid).to.be.false;
-  });
-
-  // Add more tests as needed
 });

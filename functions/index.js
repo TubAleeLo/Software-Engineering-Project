@@ -21,9 +21,6 @@ try {
     const STORAGE_BUCKET = functions.config().sec.storage_bucket;
     const APP_ID = functions.config().sec.app_id;
 
-    // Print the API_KEY to the console
-    console.log("API_KEY:", API_KEY);
-
     // Key Request HTTP function
     exports.getFirebaseConfig = functions.https.onRequest((req, res) => {
         corsHandler(req, res, () => {

@@ -84,3 +84,17 @@ function setupEventListeners() {
 
     // Add more event listeners here, if needed
 }
+
+auth.onAuthStateChanged(async (user) => {
+    if (user) {
+      // The user's UID
+      const uid = user.uid;
+  
+      // Save user data in Firestore with UID as the document ID
+      const userRef = doc(db, 'users', uid);
+      await setDoc(userRef, {
+        email: user.email
+        // Add other data as needed
+      });
+    }
+  });
