@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Search Suggestions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #plantInput {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensures padding doesn't affect total width */
+        }
+
+        #suggestions {
+            border: 1px solid #ccc;
+            position: absolute;
+            background-color: white;
+            z-index: 1;
+            width: calc(100% - 2px); /* Full width minus border */
+            max-height: 150px; /* Limit height */
+            overflow-y: auto; /* Enable scrolling */
+            display: none; /* Initially hidden */
+        }
+
+        .suggestion-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .suggestion-item:hover {
+            background-color: #f0f0f0; /* Highlight on hover */
+        }
+
+        .suggestion-item.active {
+            background-color: #d3d3d3; /* Highlight active suggestion */
+        }
+    </style>
+</head>
+<body>
+
+    <div style="position: relative; width: 300px; margin: 20px auto;">
+        <input type="text" id="plantInput" placeholder="Enter plant name..." autocomplete="off" />
+        <div id="suggestions"></div> <!-- Dropdown menu for suggestions -->
+    </div>
+
+    <script src="plantSearchSuggestion.js"></script> <!-- Link to your JS file -->
+</body>
+</html>

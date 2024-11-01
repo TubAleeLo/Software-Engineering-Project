@@ -1,6 +1,3 @@
-// Ensure auth.js is loaded before firestore.js
-const { db, storage } = require('./auth');
-
 /**
  * Creates a plant entry under a specific user.
  * @param {string} userId - The ID of the user.
@@ -40,4 +37,14 @@ async function uploadPhoto(file) {
     }
 }
 
-module.exports = { createPlantEntry, uploadPhoto };
+async function setData() {
+    try {
+        await db.collection('users').add({
+            uID: document.getElementById('uID').value,
+            userEmail: document.getElementById('userEmail').value,
+        });
+        console.log('entry created successfully');
+    } catch (error) {
+        console.error('Error creating plant entry: ', error);
+    }
+}

@@ -1,15 +1,3 @@
-
-// Logout function, TODO: apply to an actual signout interface,i.e. give a button id logout
-// const logout = document.getElementById('logout')
-// logout.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     auth.signOut();
-//     auth.signOut.then(() => {
-//         console.log('User signed out');
-//     })
-// });
-
-
 document.getElementById('login-form').addEventListener('submit', async (event) => {
     event.preventDefault();
 

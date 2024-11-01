@@ -3,12 +3,11 @@ document.getElementById('reg-email').addEventListener('input', validateEmail);
 document.getElementById('reg-password').addEventListener('input', validatePassword);
 document.getElementById('reg-confirm-password').addEventListener('input', validatePassword);
 
-
 function validatePassword() {
     const password = document.getElementById('reg-password').value;
     const confirmPassword = document.getElementById('reg-confirm-password').value;
     const message = document.getElementById('password-error');
-    
+
     // Reset error messages
     message.classList.add('visible');
 
@@ -37,7 +36,7 @@ function validateEmail() {
     const emailError = document.getElementById('email-error');
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
+
     // Check if the email is valid
     if (!emailRegex.test(email)) {
         emailError.textContent = 'Please enter a valid email address';
@@ -49,6 +48,9 @@ function validateEmail() {
         return true;
     }
 }
+
+// Export the validation functions
+module.exports = { validatePassword, validateEmail };
 
 // Function to set up event listeners
 function setupEventListeners() {
@@ -63,6 +65,13 @@ function setupEventListeners() {
             try {
                 const cred = await auth.createUserWithEmailAndPassword(email, password);
                 const user = cred.user;
+
+                // Write user data to the database
+                await set(ref(database, 'users/' + user.uid), {
+                    email: email,
+                    createdAt: new Date().toISOString(),
+                });
+
                 console.log('User created:', user);
                 // Redirect or perform other actions here
             } catch (error) {
@@ -75,5 +84,17 @@ function setupEventListeners() {
 
     // Add more event listeners here, if needed
 }
-// Export the validation functions
-module.exports = { validatePassword, validateEmail };
+
+auth.onAuthStateChanged(async (user) => {
+    if (user) {
+      // The user's UID
+      const uid = user.uid;
+  
+      // Save user data in Firestore with UID as the document ID
+      const userRef = doc(db, 'users', uid);
+      await setDoc(userRef, {
+        email: user.email
+        // Add other data as needed
+      });
+    }
+  });
