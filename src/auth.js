@@ -1,48 +1,52 @@
-// Define the URL for the Firebase configuration Testing and Emulation
-const firebaseConfigUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') 
-    ? 'http://localhost:5001/projectw-6c4cd/us-central1/getFirebaseConfig' 
-    : 'https://us-central1-projectw-6c4cd.cloudfunctions.net/getFirebaseConfig';
-
 // Global variables
 let auth;
 let db;
 let storage;
 
-// Function to fetch Firebase configuration and initialize Firebase
-async function fetchFirebaseConfig() {
-    try {
-        const response = await fetch(firebaseConfigUrl); 
-        const config = await response.json();
+// Declare firebaseConfigUrl
+let firebaseConfigUrl;
 
-        // Initialize Firebase with the fetched config
+// For local Development on the emulator
+if (true) {
+    firebaseConfigUrl = 'https://us-central1-projectw-6c4cd.cloudfunctions.net/getFirebaseConfig';
+    fetch(firebaseConfigUrl).then(response => response.json()).then(config => {
         firebase.initializeApp(config);
 
-        if (window.location.hostname === 'localhost') {
-            firebase.auth().useEmulator('http://localhost:9099/');
-            firebase.firestore().useEmulator('localhost', 8080);
-            firebase.storage().useEmulator('localhost', 9199);
-            firebase.functions().useEmulator('localhost', 5001);
-        }
+        auth = firebase.auth();
+        db = firebase.firestore();
+        storage = firebase.storage();
 
-        // Initialize Firebase Auth, Firestore, and Storage
-        auth = firebase.auth(); // Now auth is initialized
-        db = firebase.firestore(); // Now db is initialized
-        storage = firebase.storage(); // Now storage is initialized
+        auth.useEmulator("http://localhost:9099");
+        db.useEmulator("http://localhost:8099");
+        storage.useEmulator("http://localhost:9199");
 
-        console.log('Firebase Auth initialized');
-    } catch (error) {
+        console.log('Firebase emulators initialized');
+
+        // Set up auth state change listener after initialization
+        auth.onAuthStateChanged(user => {
+            if (user != null) {
+                console.log("Auth State Changed: " + user.email);
+            }
+        });
+    }).catch(error => {
         console.error("Error fetching Firebase config:", error);
-    }
-}
-
-// Call the fetchFirebaseConfig to initialize Firebase and set up envent listeners
-fetchFirebaseConfig().then(() => {
-
-    auth.onAuthStateChanged(user => {
-        if (user != null) {
-            console.log("Auth State Changed" + user.email);
-        }
-        
     });
-    //Set up event listeners, only after auth is initialized, here!
-});
+} else {
+    firebaseConfigUrl = 'https://us-central1-projectw-6c4cd.cloudfunctions.net/getFirebaseConfig';
+    fetch(firebaseConfigUrl).then(response => response.json()).then(config => {
+        firebase.initializeApp(config);
+
+        auth = firebase.auth();
+        db = firebase.firestore();
+        storage = firebase.storage();
+
+        // Set up auth state change listener after initialization
+        auth.onAuthStateChanged(user => {
+            if (user != null) {
+                console.log("Auth State Changed: " + user.email);
+            }
+        });
+    }).catch(error => {
+        console.error("Error fetching Firebase config:", error);
+    });
+}
