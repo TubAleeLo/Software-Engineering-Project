@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="testInputStyle.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Contact Form</h2>
+        <form action="./test.html" method="POST">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <!-- Import Firebase SDKs -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"; // Import Firestore functions
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDsQrVU-IPQtI6nIEDR6tbTz_PV-X0Bzac",
+            authDomain: "projectw-6c4cd.firebaseapp.com",
+            projectId: "projectw-6c4cd",
+            storageBucket: "projectw-6c4cd.appspot.com",
+            messagingSenderId: "190844827500",
+            appId: "1:190844827500:web:4af77a2d52dfd84248e549",
+            measurementId: "G-NM36DFY1Z1"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app); // Initialize Firestore
+
+        // Handle form submission
+        document.querySelector('form').addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            const name = document.querySelector('#name').value;
+            const email = document.querySelector('#email').value;
+            const message = document.querySelector('#message').value;
+
+            try {
+                // Add form data to Firestore
+                await addDoc(collection(db, 'contacts'), {
+                    name: name,
+                    email: email,
+                    message: message,
+                    timestamp: serverTimestamp() // Optional: Add a timestamp
+                });
+
+                // Display success message or reset form
+                console.log('Form submitted successfully!');
+                e.target.reset(); // Reset the form after submission
+
+            } catch (error) {
+                console.error('Error submitting form: ', error);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
