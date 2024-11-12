@@ -14,7 +14,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
 });
 
 const navToRegister = () => {
-    window.location.href = "./register.html"
+    window.location.href = "./registerTest.html"
 }
 
 const navToLogin = () => {
