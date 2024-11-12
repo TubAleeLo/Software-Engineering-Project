@@ -137,3 +137,24 @@ footer {
   padding: 20px;
   width: 100%;
 }
+
+.weather-input {
+  margin-bottom: 20px;
+}
+
+.weather-input input, .weather-input button {
+  margin: 5px;
+  padding: 10px;
+}
+
+.weather-day {
+  margin: 10px;
+  padding: 10px;
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+
+#weather-box {
+  display: flex;
+  flex-direction: column;
+}
