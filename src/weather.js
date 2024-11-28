@@ -1,106 +1,98 @@
-// // weather.js
-// const fetch = require('node-fetch'); 
+// Fetch coordinates using the Geocoding API
+const fetchCoordinates = async () => {
+    const geoApiUrl = "http://api.openweathermap.org/geo/1.0/direct"; // Geocoding API endpoint
+    const city = "Oklahoma City"; // City name
+    const state = "OK"; // State abbreviation (specific to the US)
+    const country = "US"; // Country code in ISO 3166 format
+    const apiKey = "21d48ceb9e9626a3582feb6e8307bbc2"; // OpenWeatherMap API key
 
-// async function fetchWeatherData(city) {
-//     try {
-//         const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=1aa204652b3037e2306f80c9c603d1dd`);
-        
-//     // Check if the response is ok (status code 200-299)
-//     if (!response.ok) {
-//     throw new Error(`HTTP error! status: ${response.status}`);
-// }
+    try {
+        // Make a request to the Geocoding API with the specified location
+        const response = await fetch(`${geoApiUrl}?q=${city},${state},${country}&appid=${apiKey}`);
 
-//         const weatherData = await response.json();
+        // Check if the response is successful
+        if (!response.ok) throw new Error("Failed to fetch coordinates");
 
-//         // Access temperature from the first item in the list
-//         const tempK = weatherData.list[0].main.temp; // Get temperature in Kelvin
-//         const tempC = (tempK - 273.15).toFixed(2); // Convert to Celsius
+        // Parse the JSON response
+        const data = await response.json();
 
-//         // Update the DOM elements
-//         document.getElementById('weather-temperature').textContent = `${tempC}°C`;
-//         document.getElementById('weather-condition').textContent = weatherData.list[0].weather[0].description;
+        // Check if any data was returned (e.g., if the location exists)
+        if (data.length === 0) throw new Error("Location not found");
 
-//         return weatherData; // Return the weather data if needed
-//     }catch (error) {
-//         console.error("Error fetching weather data:", error);
-        
-//         // Clear previously set weather data
-//         document.getElementById('weather-temperature').textContent = '';
-//         document.getElementById('weather-condition').textContent = '';
-      
-//         // Display the error message
-//         document.getElementById('weather-error').textContent = 'Error fetching weather data. Please try again.';
-//       }
-      
-// }
+        // Return the latitude and longitude of the location
+        return { lat: data[0].lat, lon: data[0].lon };
+    } catch (error) {
+        // Log any errors encountered during the API call
+        console.error("Error fetching coordinates:", error);
+        return null; // Return null if an error occurs
+    }
+};
 
-// // Exporting the function for testing
-// module.exports = { fetchWeatherData };
+// Fetch weather data using the Weather API
+const fetchWeather = async (lat, lon) => {
+    const weatherApiUrl = "https://api.openweathermap.org/data/2.5/weather"; // Weather API endpoint
+    const apiKey = "21d48ceb9e9626a3582feb6e8307bbc2"; // OpenWeatherMap API key
+    const units = "metric"; // Use metric units for temperature (Celsius)
 
-document.addEventListener('DOMContentLoaded', () => {
-    const APIKey = b1555897d542e4ca6519f3cece1b410f; // Replace with your OpenWeatherMap API Key
+    try {
+        // Make a request to the Weather API using the given latitude and longitude
+        const response = await fetch(`${weatherApiUrl}?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`);
 
-    const cityInput = document.getElementById('city');
-    const stateInput = document.getElementById('state');
-    const countryInput = document.getElementById('country');
-    const getWeatherBtn = document.getElementById('getWeatherBtn');
-    const weatherDetails = document.getElementById('weather-details');
+        // Check if the response is successful
+        if (!response.ok) throw new Error("Failed to fetch weather data");
 
-    console.log("weather.js loaded"); // Add this line to check if the script is loaded
+        // Parse the JSON response
+        const data = await response.json();
 
-    // Event listener for button click
-    getWeatherBtn.addEventListener('click', () => {
-        console.log('Button clicked');
+        // Return a structured object containing weather details
+        return {
+            city: data.name, // City name
+            temperature: data.main.temp, // Current temperature
+            description: data.weather[0].description, // Weather condition description
+            humidity: data.main.humidity, // Humidity percentage
+            windSpeed: data.wind.speed, // Wind speed in m/s
+        };
+    } catch (error) {
+        // Log any errors encountered during the API call
+        console.error("Error fetching weather data:", error);
+        return null; // Return null if an error occurs
+    }
+};
 
-        const city = cityInput.value.trim();
-        const state = stateInput.value.trim();
-        const country = countryInput.value.trim();
+// Update the HTML with weather data
+const updateWeatherUI = (weather) => {
+    const weatherElement = document.getElementById("weather-info"); // Select the weather display element
 
-        if (city && state && country) {
-            fetchGeocode(city, state, country); // Fetch geolocation data
-        } else {
-            weatherDetails.innerHTML = 'Please enter a city, state, and country.';
-        }
-    });
-
-    // Function to fetch geocoding data and get lat/lon
-    function fetchGeocode(city, state, country) {
-        const geocodeUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&limit=1&appid=${APIKey}`;
-
-        fetch(geocodeUrl)
-            .then(response => response.json())
-            .then(data => {
-                if (data.length > 0) {
-                    const lat = data[0].lat;
-                    const lon = data[0].lon;
-                    fetchWeatherForecast(lat, lon); // Fetch weather data with lat/lon
-                } else {
-                    weatherDetails.innerHTML = 'City not found. Please check your input.';
-                }
-            })
-            .catch(error => {
-                weatherDetails.innerHTML = 'Error fetching location data';
-                console.error('Error:', error);
-            });
+    // Handle case where no weather data is available
+    if (!weather) {
+        weatherElement.textContent = "Unable to load weather data.";
+        return;
     }
 
-    // Function to fetch weather forecast
-    function fetchWeatherForecast(lat, lon) {
-        const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}&units=metric`;
+    // Update the weather display with dynamic data
+    weatherElement.innerHTML = `
+        <strong>City:</strong> ${weather.city} <br>
+        <strong>Temperature:</strong> ${weather.temperature}°C <br>
+        <strong>Condition:</strong> ${weather.description.charAt(0).toUpperCase() + weather.description.slice(1)} <br>
+        <strong>Humidity:</strong> ${weather.humidity}% <br>
+        <strong>Wind Speed:</strong> ${weather.windSpeed} m/s
+    `;
+};
 
-        fetch(weatherUrl)
-            .then(response => response.json())
-            .then(data => {
-                const forecast = data.list.slice(0, 5).map(item => {
-                    return `
-                        <p>${new Date(item.dt * 1000).toLocaleString()}: ${item.main.temp}°C, ${item.weather[0].description}</p>
-                    `;
-                }).join('');
-                weatherDetails.innerHTML = forecast;
-            })
-            .catch(error => {
-                weatherDetails.innerHTML = 'Error fetching weather data';
-                console.error('Error:', error);
-            });
+// Main function to orchestrate the API calls and update UI
+const loadWeather = async () => {
+    // Fetch coordinates for the location
+    const coordinates = await fetchCoordinates();
+
+    // If coordinates are successfully fetched, retrieve weather data
+    if (coordinates) {
+        const weather = await fetchWeather(coordinates.lat, coordinates.lon);
+        updateWeatherUI(weather); // Update the UI with the weather data
+    } else {
+        // If no coordinates are found, update the UI with an error message
+        updateWeatherUI(null);
     }
-});
+};
+
+// Load weather data when the page content is fully loaded
+document.addEventListener("DOMContentLoaded", loadWeather);
