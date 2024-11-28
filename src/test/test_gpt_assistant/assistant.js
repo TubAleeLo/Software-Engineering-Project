@@ -26,7 +26,7 @@ async function sendMessage() {
     const assistantMessage = data.choices[0].message.content;
 
     // Display assistant's response in the chatbox
-    displayMessage('Assistant', assistantMessage);
+    displayMessage('Leaf Loigc Assistant', assistantMessage);
 
     // Clear the input field
     document.getElementById('user-input').value = '';
