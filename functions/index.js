@@ -1,7 +1,17 @@
+/**
+ * Import function triggers from their respective submodules:
+ *
+ * const {onCall} = require("firebase-functions/v2/https");
+ * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
+ *
+ * See a full list of supported triggers at https://firebase.google.com/docs/functions
+ */
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const cors = require('cors');  // Import CORS middleware
 
+// Initialize CORS
+const corsHandler = cors({ origin: true }); // Allow all origins
 admin.initializeApp();
 
 try {
@@ -11,6 +21,7 @@ try {
     const STORAGE_BUCKET = functions.config().sec.storage_bucket;
     const APP_ID = functions.config().sec.app_id;
 
+<<<<<<< HEAD
     // Define allowed origins
     const allowedOrigins = ['http://127.0.0.1:5500', 'http://localhost:5001', 'http://localhost:3000', 'http://127.0.0.1:5001', 'http://127.0.0.1:3000'];
 
@@ -30,6 +41,12 @@ try {
     exports.getFirebaseConfig = functions.https.onRequest((req, res) => {
         cors(corsOptions)(req, res, () => {
             res.status(200).send({
+=======
+    // Key Request HTTP function
+    exports.getFirebaseConfig = functions.https.onRequest((req, res) => {
+        corsHandler(req, res, () => {
+            res.send({
+>>>>>>> main
                 apiKey: API_KEY,
                 authDomain: AUTH_DOMAIN,
                 projectId: PROJECT_ID,
@@ -39,5 +56,11 @@ try {
         });
     });
 } catch (error) {
+<<<<<<< HEAD
     console.error("Error initializing Firebase config:", error);
 }
+=======
+    console.error("Error initializing Firebase configuration:", error.message);
+    console.error("Stack trace:", error.stack);
+}
+>>>>>>> main
