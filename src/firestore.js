@@ -9,8 +9,11 @@
 
 // This is the function that will send user data to the firestore database,
 // which will then allow the user to see their plant data on the website. 
+// User verification is now ensured each time someone attempts to update their databse information.
 async function createPlantEntry(userId, photoUrl, name, location) {
     try {
+        const idToken = await firebase.auth().currentUser.getIdToken(/* forceRefresh */ true);
+        await admin.auth().verifyIdToken(idToken);
         await db.collection('users').doc(userId).collection('plants').add({
             photoUrl: photoUrl,
             name: name,

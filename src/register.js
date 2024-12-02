@@ -49,9 +49,6 @@ function validateEmail() {
     }
 }
 
-// Export the validation functions
-module.exports = { validatePassword, validateEmail };
-
 // Function to set up event listeners
 function setupEventListeners() {
     const signupForm = document.getElementById('reg-signup-form');
@@ -84,17 +81,3 @@ function setupEventListeners() {
 
     // Add more event listeners here, if needed
 }
-
-auth.onAuthStateChanged(async (user) => {
-    if (user) {
-      // The user's UID
-      const uid = user.uid;
-  
-      // Save user data in Firestore with UID as the document ID
-      const userRef = doc(db, 'users', uid);
-      await setDoc(userRef, {
-        email: user.email
-        // Add other data as needed
-      });
-    }
-  });
