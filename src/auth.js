@@ -32,11 +32,11 @@ fetch(firebaseConfigUrl).then(response => response.json()).then(config => {
 if (true) {
     fetch(firebaseConfigUrl).then(response => response.json()).then(config => {
         firebase.initializeApp(config);
-    
+
         auth = firebase.auth();
         db = firebase.firestore();
         storage = firebase.storage();
-    
+
         if (useEmulator) {
             auth.useEmulator("http://localhost:9099");
             db.useEmulator("http://localhost:8099");
@@ -44,7 +44,7 @@ if (true) {
             console.log('Firebase emulators initialized');
 >>>>>>> main
         }
-    
+
         auth.onAuthStateChanged(user => {
             if (user != null) {
                 console.log("Auth State Changed: " + user.email);
@@ -59,6 +59,8 @@ if (true) {
     fetch(firebaseConfigUrl).then(response => response.json()).then(config => {
 >>>>>>> zachary
         firebase.initializeApp(config);
+
+
 
         // Initialize Firebase services
         auth = firebase.auth();
