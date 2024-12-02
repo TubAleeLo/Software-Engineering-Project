@@ -27,7 +27,7 @@ async function createPlantEntry(userId, photoUrl, name, location) {
 }
 
 async function uploadPhoto(file) {
-    const storageRef = storage.ref();
+    const storageRef = firebase.storage().ref(); // Add () after `storage`
     const photoRef = storageRef.child(`photos/${file.name}`);
     
     try {
@@ -39,6 +39,7 @@ async function uploadPhoto(file) {
         throw error;
     }
 }
+
 
 async function setData() {
     try {
