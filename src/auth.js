@@ -3,7 +3,7 @@ let auth, db, storage;
 
 // Declare firebaseConfigUrl
 let firebaseConfigUrl;
-const useEmulator = true;
+const useEmulator = false;
 
 // For local Development on the emulator
 if (true) {
