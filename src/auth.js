@@ -5,21 +5,20 @@ let auth, db, storage;
 let firebaseConfigUrl;
 const useEmulator = true;
 
-// Set the Firebase config URL based on the environment
-firebaseConfigUrl = 'https://us-central1-projectw-6c4cd.cloudfunctions.net/getFirebaseConfig';
+// For local Development on the emulator
+if (true) {
+    fetch(firebaseConfigUrl).then(response => response.json()).then(config => {
+        firebase.initializeApp(config);
 
-// Fetch Firebase config and initialize Firebase
-fetch(firebaseConfigUrl).then(response => response.json()).then(config => {
-    firebase.initializeApp(config);
+        auth = firebase.auth();
+        db = firebase.firestore();
+        storage = firebase.storage();
 
-    auth = firebase.auth();
-    db = firebase.firestore();
-    storage = firebase.storage();
-
-    // Set up auth state change listener after initialization
-    auth.onAuthStateChanged(user => {
-        if (user != null) {
-            console.log("Auth State Changed: " + user.email);
+        if (useEmulator) {
+            auth.useEmulator("http://localhost:9099");
+            db.useEmulator("http://localhost:8099");
+            storage.useEmulator("http://localhost:9199");
+            console.log('Firebase emulators initialized');
         }
 
         auth.onAuthStateChanged(user => {
