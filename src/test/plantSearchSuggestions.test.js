@@ -1,5 +1,6 @@
 const chai = require('chai');
 const expect = chai.expect;
+const plantDatabase = require('../plantDatabase');
 
 // Use the same mock plant database as in your main implementation
 const plantDatabase = [
