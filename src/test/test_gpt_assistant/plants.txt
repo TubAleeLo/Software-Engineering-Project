@@ -18,3 +18,4 @@ Basil: Requires bright light and consistent watering, perfect for indoor herb ga
 Mint: Grows well in partial sunlight and needs consistently moist soil.
 Rosemary: Enjoys full sunlight and minimal watering once established.
 Thyme: Prefers full sunlight and occasional watering; great for culinary use.
+TestPlant: Testplant is purple with spots

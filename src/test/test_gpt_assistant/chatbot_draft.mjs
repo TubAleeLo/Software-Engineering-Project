@@ -1,9 +1,9 @@
+import fs from 'fs'; // Import File System module
 import express from 'express';
 import bodyParser from 'body-parser';
 import OpenAI from 'openai';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import fs from 'fs';
 
 // Provide your OpenAI API key here
 const openai = new OpenAI({
@@ -20,40 +20,31 @@ app.use(bodyParser.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-//
-let plantData;
+let assistant;
+let thread;
 
-//
+// Variables to store plant data
+let plantData = {};
+let plantDataString = '';
+
+// Load plant data from the file at startup
 fs.readFile(path.join(__dirname, 'plants.txt'), 'utf8', (err, data) => {
   if (err) {
     console.error('Error reading plants file:', err);
   } else {
+    // Parse plant data into an object and a string for OpenAI context
     plantData = data.split('\n').reduce((acc, line) => {
       const [name, description] = line.split(':');
       acc[name.trim()] = description.trim();
       return acc;
     }, {});
-    console.log('Plant data loaded:', plantData);
+
+    plantDataString = Object.entries(plantData)
+      .map(([name, description]) => `${name}: ${description}`)
+      .join('\n');
+    console.log('Plant data loaded:', plantDataString);
   }
 });
-
-// Global variables to store the assistant and thread ID
-let assistant;
-let thread;
-
-// Create the assistant once when the server starts
-/* (async () => {
-  try {
-    assistant = await openai.beta.assistants.create({
-      name: "Plant Helper",
-      instructions: "You are a personal plant care assistant. Provide support and instructions for plant care. Do not provide any other support or assistance outside the scope of plant care.",
-      model: "gpt-3.5-turbo"
-    });
-    console.log("Assistant created:", assistant.id);
-  } catch (error) {
-    console.error("Error creating assistant:", error);
-  }
-}) ();*/
 
 // Serve the HTML file when accessing the root route
 app.get('/', (req, res) => {
@@ -65,35 +56,42 @@ app.post('/ask-assistant', async (req, res) => {
   try {
     const { message } = req.body;
 
-    // Check if the message contains a plant name
-    const plantInfo = Object.entries(plantData).find(([name]) =>
+   /** */ // Check if the message contains a plant name
+    /**const plantInfo = Object.entries(plantData).find(([name]) =>
       message.toLowerCase().includes(name.toLowerCase())
     );
 
-    
+    // If a plant name is found in the user's message, respond directly
     if (plantInfo) {
       const [plantName, plantDetails] = plantInfo;
       res.json({ response: `Here's what I know about ${plantName}: ${plantDetails}` });
       return;
     }
+  **/
+    // Prepare assistant context including plant data and user message
+    const assistantContext = `
+You are a plant care assistant named "Plant Helper." Use the following information to help the user with plant-related questions:
 
-    // Check if the thread already exists, if not create one
+${plantDataString}
+
+User message: "${message}"
+    `;
+
+    // Create a new thread if it doesn't exist
     if (!thread) {
       thread = await openai.beta.threads.create();
-      console.log("New thread created:", thread.id);
+      console.log('New thread created:', thread.id);
     }
 
-    // Add the user's message to the existing thread
+    // Add the user's message and context to the existing thread
     await openai.beta.threads.messages.create(thread.id, {
-      role: "user",
-      content: message
+      role: 'user',
+      content: assistantContext,
     });
 
     // Run the assistant on the thread
-    let run = await openai.beta.threads.runs.createAndPoll(thread.id, { 
-      //assistant_id: assistant.id,
+    let run = await openai.beta.threads.runs.createAndPoll(thread.id, {
       assistant_id: 'asst_CYcOKzQcQZWclLJuUH7l0V9O',
-      //instructions: "Please address the user as Jane Doe. The user has a premium account. Your name is Plant Helper. You are only allowed to provide assistance as it relates to caring for plants. You are expressly forbidden from deviating from these instructions."
     });
 
     // Check the run status and send the response
@@ -102,9 +100,8 @@ app.post('/ask-assistant', async (req, res) => {
       const assistantMessage = messages.data[0].content[0].text.value;
       res.json({ response: assistantMessage });
     } else {
-      res.json({ response: "The assistant is still thinking. Please try again." });
+      res.json({ response: 'The assistant is still thinking. Please try again.' });
     }
-
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Something went wrong' });
