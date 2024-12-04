@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import OpenAI from 'openai';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import fs from 'fs';
 
 // Provide your OpenAI API key here
 const openai = new OpenAI({
