@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const loginForm = document.getElementById('login-form');
 
+<<<<<<< HEAD
     loginForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
@@ -22,4 +23,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             errorMessage.style.display = 'block';
         }
     });
+=======
+    try {
+        const userCredential = await auth.signInWithEmailAndPassword(email, password);
+        console.log('User logged in:', userCredential.user.email);
+        window.location.href = "./userHomePage.html";
+    } catch (error) {
+        console.error('Error logging in:', error);
+        alert('Error logging in: ' + error.message);
+    }
+>>>>>>> zachary
 });

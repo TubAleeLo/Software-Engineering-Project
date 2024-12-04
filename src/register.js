@@ -62,8 +62,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const cred = await auth.createUserWithEmailAndPassword(email, password);
                 console.log('User created:', cred.user);
 
+<<<<<<< HEAD
                 // Redirect to user home page after successful signup
                 window.location.href = './userHomePage.html';
+=======
+                console.log('User created:', user);
+                // Redirect or perform other actions here
+                window.location.href = "userHomePage.html";
+>>>>>>> zachary
             } catch (error) {
                 console.error('Error signing up:', error);
                 alert(`Error: ${error.message}`);
