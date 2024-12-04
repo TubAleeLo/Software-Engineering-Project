@@ -19,6 +19,23 @@ app.use(bodyParser.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+//
+let plantData;
+
+//
+fs.readFile(path.join(__dirname, 'plants.txt'), 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading plants file:', err);
+  } else {
+    plantData = data.split('\n').reduce((acc, line) => {
+      const [name, description] = line.split(':');
+      acc[name.trim()] = description.trim();
+      return acc;
+    }, {});
+    console.log('Plant data loaded:', plantData);
+  }
+});
+
 // Global variables to store the assistant and thread ID
 let assistant;
 let thread;
@@ -46,6 +63,18 @@ app.get('/', (req, res) => {
 app.post('/ask-assistant', async (req, res) => {
   try {
     const { message } = req.body;
+
+    // Check if the message contains a plant name
+    const plantInfo = Object.entries(plantData).find(([name]) =>
+      message.toLowerCase().includes(name.toLowerCase())
+    );
+
+    
+    if (plantInfo) {
+      const [plantName, plantDetails] = plantInfo;
+      res.json({ response: `Here's what I know about ${plantName}: ${plantDetails}` });
+      return;
+    }
 
     // Check if the thread already exists, if not create one
     if (!thread) {
