@@ -3,10 +3,10 @@ let auth, db, storage;
 
 // Declare firebaseConfigUrl
 let firebaseConfigUrl;
-const useEmulator = true;
+const useEmulator = false;
 
 // For local Development on the emulator
-if (true) {
+if (false) {
     fetch(firebaseConfigUrl).then(response => response.json()).then(config => {
         firebase.initializeApp(config);
     
@@ -20,7 +20,7 @@ if (true) {
             storage.useEmulator("http://localhost:9199");
             console.log('Firebase emulators initialized');
         }
-    
+     
         auth.onAuthStateChanged(user => {
             if (user != null) {
                 console.log("Auth State Changed: " + user.email);
