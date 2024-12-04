@@ -124,12 +124,17 @@ p {
 }
 
 /* Dashboard Links Styling */
+.dashboard {
+    display: flex;
+    flex-direction: column;
+}
+
 /* Style for dashboard navigation links */
 .dashboard-links {
     display: flex; /* Use flexbox for layout */
     justify-content: center; /* Center the buttons horizontally */
     gap: 15px; /* Add spacing between buttons */
-    margin-top: 20px; /* Add spacing above the dashboard */
+    margin-top: 20px 20px 20px 20px; /* Add spacing above the dashboard */
 }
 
 .dashboard-item {
@@ -151,6 +156,27 @@ p {
     background-color: #3e9b43; /* Lighter green on hover */
     transform: translateY(-3px); /* Add lift effect on hover */
     box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+/* Dashboard Section */
+#dashboard {
+    padding: 20px;
+    background-color: rgba(71, 182, 99, 0.651);
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+/* Plant Log Styling */
+#plant-log {
+    padding: 20px;
+    background-color: rgba(71, 182, 99, 0.651);
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* Footer Styling */
