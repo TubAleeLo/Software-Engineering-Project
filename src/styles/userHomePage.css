@@ -134,7 +134,7 @@ p {
     display: flex; /* Use flexbox for layout */
     justify-content: center; /* Center the buttons horizontally */
     gap: 15px; /* Add spacing between buttons */
-    margin-top: 20px 20px 20px 20px; /* Add spacing above the dashboard */
+    margin-top: 20px; /* Add spacing above the dashboard */
 }
 
 .dashboard-item {
@@ -150,6 +150,7 @@ p {
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
     text-align: center; /* Center-align text within buttons */
     width: 200px; /* Set a fixed button width */
+    margin: 5px 0 5px 0;
 }
 
 .dashboard-item:hover {
