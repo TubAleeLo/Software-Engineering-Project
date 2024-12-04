@@ -1,5 +1,6 @@
 const chai = require('chai');
 const expect = chai.expect;
+const plantDatabase = require('../plantDatabase');
 
 // Use the same mock plant database as in your main implementation
 const plantDatabase = [
@@ -50,8 +51,7 @@ describe('Plant Search Suggestions', function() {
     });
 
     it('should return multiple suggestions when multiple plants match', function() {
-        // Update this line to match all plants starting with 'B'
-        expect(getPlantSuggestions('B')).to.deep.equal(['Basil', 'Bird of Paradise']); // Ensure these match your main database
+        expect(getPlantSuggestions('B')).to.deep.equal(['Basil', 'Bird of Paradise']); 
     });
 
     it('should return an empty array for input with no matches', function() {
@@ -61,7 +61,7 @@ describe('Plant Search Suggestions', function() {
     it('should return suggestions case-insensitively', function() {
         expect(getPlantSuggestions('alo')).to.deep.equal(['Aloe Vera']);
         expect(getPlantSuggestions('fid')).to.deep.equal(['Fiddle Leaf Fig']);
-        expect(getPlantSuggestions('b')).to.deep.equal(['Basil', 'Bird of Paradise']); // Update this line to match actual plants
+        expect(getPlantSuggestions('b')).to.deep.equal(['Basil', 'Bird of Paradise']); 
     });
 
     it('should return an empty array for empty input', function() {
