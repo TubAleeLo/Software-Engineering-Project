@@ -1,21 +1,3 @@
-Spider Plant: Easy to care for, thrives in indirect sunlight and requires moderate watering.
-Snake Plant: Tolerant of low light and infrequent watering, great for beginners.
-Aloe Vera: Prefers bright light and minimal watering, ideal for sunny windows.
-Peace Lily: Prefers shade, requires moderate watering, and blooms with white flowers.
-Pothos: Thrives in low to medium light, requires occasional watering, and is highly resilient.
-Fiddle Leaf Fig: Needs bright, indirect light and consistent watering without overwatering.
-Monstera: Enjoys bright, indirect sunlight and occasional watering to maintain soil moisture.
-Succulents: Prefer full sun and very infrequent watering; great for dry climates.
-Rubber Plant: Needs bright, indirect sunlight and regular watering, but avoid soggy soil.
-Calathea: Prefers high humidity, indirect light, and consistent, light watering.
-Boston Fern: Thrives in indirect light and high humidity with moist soil.
-Jade Plant: Requires bright light and infrequent watering, perfect for sunny areas.
-ZZ Plant: Extremely low-maintenance, tolerates low light and sparse watering.
-Philodendron: Easy to grow, thrives in medium light, and needs moderate watering.
-Cactus: Loves bright sunlight and requires very little watering; ideal for arid environments.
-Lavender: Prefers full sunlight and well-drained soil, with infrequent watering.
-Basil: Requires bright light and consistent watering, perfect for indoor herb gardens.
-Mint: Grows well in partial sunlight and needs consistently moist soil.
-Rosemary: Enjoys full sunlight and minimal watering once established.
-Thyme: Prefers full sunlight and occasional watering; great for culinary use.
-TestPlant: Testplant is purple with spots
+TestPlant1: TestPlant1 is purple with spots, needs to be watered once a day, grows best in warm weather
+TestPlant2: TestPlant2 is green with a fuzzy surface, needs to be watered once a week, grows best in cold weather
+TestPlant3: TestPlant3 has transparent leaves, needs to be watered once a month, grows best in mild weather
