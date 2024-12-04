@@ -15,7 +15,7 @@ function validatePassword() {
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
     if (!passwordRegex.test(password)) {
         message.style.color = 'red';
-        message.textContent = 'Password must 6 characters long, contain a letter, a number, and special character';
+        message.textContent = 'Password must be 6 characters long, contain a letter, a number, and a special character';
         return false;
     }
 
@@ -63,21 +63,18 @@ function setupEventListeners() {
                 const cred = await auth.createUserWithEmailAndPassword(email, password);
                 const user = cred.user;
 
-                // Write user data to the database
-                await set(ref(database, 'users/' + user.uid), {
-                    email: email,
-                    createdAt: new Date().toISOString(),
-                });
-
                 console.log('User created:', user);
                 // Redirect or perform other actions here
+                window.location.href = "userHomePage.html";
             } catch (error) {
                 console.error("Error signing up:", error.code, error.message);
                 document.getElementById('reg-signup-form').reset();
             }
-            signupForm.reset();
         }
     });
 
     // Add more event listeners here, if needed
 }
+
+// Call the setupEventListeners function to initialize event listeners
+setupEventListeners();
