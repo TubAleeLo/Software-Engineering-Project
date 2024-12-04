@@ -65,7 +65,7 @@ function setupEventListeners() {
 
                 console.log('User created:', user);
                 // Redirect or perform other actions here
-                window.location.href = './landingPage.html';
+                window.location.href = "userHomePage.html";
             } catch (error) {
                 console.error("Error signing up:", error.code, error.message);
                 document.getElementById('reg-signup-form').reset();

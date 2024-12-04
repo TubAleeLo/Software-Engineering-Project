@@ -57,7 +57,7 @@ button:hover {
   max-width: 425px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow */
   backdrop-filter: blur(12px); /* Increased blur for a softer look */
-  background-color: rgba(252, 252, 252, 0.17);
+  background-color: #52b659;
   border: 1px solid #fff; /* Ensure visible border */
   transition: background-color 0.3s ease;
 }
@@ -77,4 +77,5 @@ form {
   gap: 10px;         /* Adds space between form elements */
   padding: 20px;
   border-radius: 8px;
+  background-color: #27742c;
 }
