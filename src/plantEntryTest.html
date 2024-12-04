@@ -62,7 +62,7 @@
             }
 
             try {
-                const photoUrl = await uploadPhoto(photoFile);
+                const photoUrl = await w(photoFile);
                 await createPlantEntry(userId, photoUrl, name, location);
                 alert('Plant entry created successfully');
             } catch (error) {

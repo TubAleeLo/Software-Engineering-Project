@@ -6,14 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Import Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-<<<<<<< HEAD
-    <!-- Include Stylesheets -->
     <link rel="stylesheet" href="./styles/style.css">
-=======
->>>>>>> zachary
     <link rel="stylesheet" href="./styles/registerStyle.css">
-    <link rel="stylesheet" href="./styles/style.css">
-    
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
   </head>
 
@@ -51,10 +45,19 @@
         </form>
     </div>
 
-    <!-- Load Firebase and Scripts -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="./auth.js"></script>
-    <script src="./register.js"></script>
-  </body>
+</body>
+
+
+<!--Load Scripts After Content-->
+
+<!--Firebase Scripts https://firebase.google.com/docs/web/setup#available-libraries-->
+<!--Initializes firebase authentification Using 8.10.0 for namespaced compatability-->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+<script src="auth.js"></script>
+<script src="register.js"></script>
+
 </html>
