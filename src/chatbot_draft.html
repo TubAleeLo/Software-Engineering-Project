@@ -187,14 +187,26 @@
 
             // Clear the input field
             inputField.value = '';
-        }
+        };
 
         // Function to display messages in the chatbox
         function displayMessage(role, message) {
-            const messagesContainer = document.getElementById('messages');
-            messagesContainer.innerHTML += `<p><b>${role}:</b> ${message}</p>`;
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;  // Scroll to bottom
-        }
+        message = message
+            .replace(/######\s(.+)/g, '<h6>$1</h6>')
+            .replace(/#####\s(.+)/g, '<h5>$1</h5>')
+            .replace(/####\s(.+)/g, '<h4>$1</h4>')
+            .replace(/###\s(.+)/g, '<h3>$1</h3>')
+            .replace(/##\s(.+)/g, '<h2>$1</h2>')
+            .replace(/#\s(.+)/g, '<h1>$1</h1>')
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.+?)\*/g, '<em>$1</em>')
+            .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
+            .replace(/\n/g, '<br>');
+        
+        const messagesContainer = document.getElementById('messages');
+        messagesContainer.innerHTML += `<p><b>${role}:</b> ${message}</p>`;
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;  // Scroll to bottom
+    };
 
         // Add event listener for Enter key
         document.getElementById('user-input').addEventListener('keydown', function (event) {

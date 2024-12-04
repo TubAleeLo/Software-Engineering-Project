@@ -23,19 +23,6 @@ const __dirname = path.dirname(__filename);
 let assistant;
 let thread;
 
-// Create the assistant once when the server starts
-/* (async () => {
-  try {
-    assistant = await openai.beta.assistants.create({
-      name: "Plant Helper",
-      instructions: "You are a personal plant care assistant. Provide support and instructions for plant care. Do not provide any other support or assistance outside the scope of plant care.",
-      model: "gpt-3.5-turbo"
-    });
-    console.log("Assistant created:", assistant.id);
-  } catch (error) {
-    console.error("Error creating assistant:", error);
-  }
-}) ();*/
 
 // Serve the HTML file when accessing the root route
 app.get('/', (req, res) => {
@@ -61,10 +48,8 @@ app.post('/ask-assistant', async (req, res) => {
 
     // Run the assistant on the thread
     let run = await openai.beta.threads.runs.createAndPoll(thread.id, { 
-      //assistant_id: assistant.id,
       assistant_id: 'asst_CYcOKzQcQZWclLJuUH7l0V9O',
-      //instructions: "Please address the user as Jane Doe. The user has a premium account. Your name is Plant Helper. You are only allowed to provide assistance as it relates to caring for plants. You are expressly forbidden from deviating from these instructions."
-    });
+  });
 
     // Check the run status and send the response
     if (run.status === 'completed') {

@@ -1,45 +1,31 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import OpenAI from 'openai';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 // Provide your OpenAI API key here
 const openai = new OpenAI({
-  apiKey: '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'  // Replace with your actual OpenAI API key
+  apiKey: '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' // Replace with your actual OpenAI API key
 });
 
 const app = express();
 const port = 3000;
 
 // Middleware to parse JSON bodies
-app.use(bodyParser.json());
+app.use(express.json());
 
-// Resolve __dirname (necessary in ES modules)
+// Middleware to serve static files from the current directory
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+app.use(express.static(__dirname));
 
 // Global variables to store the assistant and thread ID
 let assistant;
 let thread;
 
-// Create the assistant once when the server starts
-/* (async () => {
-  try {
-    assistant = await openai.beta.assistants.create({
-      name: "Plant Helper",
-      instructions: "You are a personal plant care assistant. Provide support and instructions for plant care. Do not provide any other support or assistance outside the scope of plant care.",
-      model: "gpt-3.5-turbo"
-    });
-    console.log("Assistant created:", assistant.id);
-  } catch (error) {
-    console.error("Error creating assistant:", error);
-  }
-}) ();*/
-
 // Serve the HTML file when accessing the root route
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'chatbot_draft.html'));
+  res.sendFile(path.join(__dirname, 'landingPage.html'));
 });
 
 // Endpoint to handle user messages and communicate with OpenAI Assistant
@@ -61,9 +47,7 @@ app.post('/ask-assistant', async (req, res) => {
 
     // Run the assistant on the thread
     let run = await openai.beta.threads.runs.createAndPoll(thread.id, { 
-      //assistant_id: assistant.id,
       assistant_id: 'asst_CYcOKzQcQZWclLJuUH7l0V9O',
-      //instructions: "Please address the user as Jane Doe. The user has a premium account. Your name is Plant Helper. You are only allowed to provide assistance as it relates to caring for plants. You are expressly forbidden from deviating from these instructions."
     });
 
     // Check the run status and send the response
