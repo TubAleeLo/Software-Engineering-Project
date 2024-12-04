@@ -34,5 +34,6 @@ try {
         });
     });
 } catch (error) {
-    console.error("Error initializing Firebase configuration:", error);
+    console.error("Error initializing Firebase configuration:", error.message);
+    console.error("Stack trace:", error.stack);
 }
