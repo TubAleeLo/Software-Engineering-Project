@@ -1,49 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>Leaf Logic - Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-
-  </head>
-
-  <body>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
     <!-- Nav Bar -->
     <div class="navbar">
-      <a href="landingpage.html">Home</a>
-      <div class="navbar-links">
-      </div>
+        <a href="landingpage.html">Home</a>
     </div>
 
     <!-- Content Section -->
     <div class="container">
-      <h1>Leaf Logic</h1>
-      <p>Smart Plant Care Assistant</p>
+        <h1>Leaf Logic</h1>
+        <p>Smart Plant Care Assistant</p>
 
-      <form class="form-container" id="login-form">
-        <h2>Login</h2>
+        <form class="form-container" id="login-form">
+            <h2>Login</h2>
 
-        <!-- Username Input -->
-        <input type="email" id="login-email" name="email" placeholder="Email" required>
+            <!-- Username Input -->
+            <input type="email" id="login-email" name="email" placeholder="Email" required>
 
-        <!-- Password Input -->
-        <input type="password" id="login-password" name="password" placeholder="Password" required>
+            <!-- Password Input -->
+            <input type="password" id="login-password" name="password" placeholder="Password" required>
 
-        <!-- Container for Login and Register buttons -->
-        <div class="button-container">
-          <!-- Submit Button -->
-          <button type="submit">Login</button>
+            <!-- Container for Login and Register buttons -->
+            <div class="button-container">
+                <!-- Submit Button -->
+                <button type="submit">Login</button>
 
-          <!-- Create Account Button -->
-          <button type="button" onclick="window.location.href='register.html'">Register</button>
-        </div>
+                <!-- Create Account Button -->
+                <button type="button" onclick="window.location.href='registerTest.html'">Register</button>
+            </div>
 
-        <!-- Error message -->
-        <p id="error-message" style="color: red; display: none;">Invalid username or password!</p>
-      </form>
+            <!-- Error message -->
+            <p id="error-message" style="color: red; display: none;">Invalid username or password!</p>
+        </form>
     </div>
+
+    <!-- Load Scripts After Content -->
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="auth.js"></script>
+    <script src="nav.js"></script>
+    <script src="login.js"></script>
   </body>
 </html>
 
@@ -57,5 +65,5 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
-<script src="auth.js"></script>
-<script src="login.js"></script>
+<script src="./auth.js"></script>
+<script src="./login.js"></script>

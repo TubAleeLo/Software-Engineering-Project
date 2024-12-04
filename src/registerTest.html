@@ -4,35 +4,38 @@
     <title>Leaf Logic - Register</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Include Stylesheets -->
+    <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/registerStyle.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
   </head>
 
   <body>
-    <!-- Simplified Nav Bar for Register Page (removed Login button) -->
+    <!-- Simplified Nav Bar for Register Page -->
     <div class="navbar">
       <a href="landingpage.html">Home</a>
     </div>
 
     <!-- Form Section -->
     <div class="container">
-        <form class="form-container" id="reg-signup-form" >
+        <form class="form-container" id="reg-signup-form">
             <h2>Register</h2>
 
-            <!-- Email Error display message -->
+            <!-- Display Email Error -->
             <p id="email-error" class="error-message"></p>
 
             <!-- Email Input -->
-            <input type="text" id="reg-email" name="Email" placeholder="Email" required>
+            <input type="email" id="reg-email" name="email" placeholder="Email" required>
 
             <!-- Password Input -->
             <input type="password" id="reg-password" name="password" placeholder="Password" required>
 
-            <!-- Confirm Password -->
+            <!-- Confirm Password Input -->
             <input type="password" id="reg-confirm-password" name="confirm-password" placeholder="Confirm Password" required>
 
-            <!-- Password Error display message -->
+            <!-- Display Password Error -->
             <p id="password-error" class="error-message"></p>
 
             <!-- Submit Button -->
@@ -57,5 +60,4 @@
 
 <script src="auth.js"></script>
 <script src="register.js"></script>
-
 </html>

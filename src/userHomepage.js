@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("You have been logged out.");
 
             // Redirect the user to the logout page (replace with actual logout URL if applicable)
-            window.location.href = "logout.html";
+            window.location.href = "landingPage.html";
         });
     }
 });
