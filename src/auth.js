@@ -6,7 +6,7 @@ let firebaseConfigUrl;
 const useEmulator = true;
 
 // For local Development on the emulator
-if (true) {
+if (false) {
     fetch(firebaseConfigUrl).then(response => response.json()).then(config => {
         firebase.initializeApp(config);
     
