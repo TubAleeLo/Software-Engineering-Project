@@ -81,18 +81,20 @@ const updateWeatherUI = (weather) => {
 
 // Main function to orchestrate the API calls and update UI
 const loadWeather = async () => {
-    // Fetch coordinates for the location
-    const coordinates = await fetchCoordinates();
+    try {
+        // Fetch coordinates for the location
+        const coordinates = await fetchCoordinates();
+        if (!coordinates) throw new Error("Coordinates not found.");
 
-    // If coordinates are successfully fetched, retrieve weather data
-    if (coordinates) {
+        // Fetch and display weather data
         const weather = await fetchWeather(coordinates.lat, coordinates.lon);
-        updateWeatherUI(weather); // Update the UI with the weather data
-    } else {
-        // If no coordinates are found, update the UI with an error message
+        updateWeatherUI(weather);
+    } catch (error) {
+        console.error("Error loading weather data:", error);
         updateWeatherUI(null);
     }
 };
 
-// Load weather data when the page content is fully loaded
+// Load weather data when the page is fully loaded
 document.addEventListener("DOMContentLoaded", loadWeather);
+

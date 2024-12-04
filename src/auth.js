@@ -1,51 +1,29 @@
-// Global variables
-let auth, db, storage;
+// Initialize Firebase with dynamically fetched configuration
+async function initializeFirebase() {
+    if (!firebase.apps.length) {
+        try {
+            // Fetch Firebase config from Cloud Function
+            const response = await fetch("https://us-central1-projectw-6c4cd.cloudfunctions.net/getFirebaseConfig");
+            if (!response.ok) {
+                throw new Error(`Failed to fetch Firebase config: ${response.status} ${response.statusText}`);
+            }
 
-// Declare firebaseConfigUrl
-let firebaseConfigUrl;
-const useEmulator = false;
+            const firebaseConfig = await response.json();
 
-// For local Development on the emulator
-if (true) {
-    fetch(firebaseConfigUrl).then(response => response.json()).then(config => {
-        firebase.initializeApp(config);
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            console.log("Firebase initialized successfully:", firebaseConfig);
 
-        auth = firebase.auth();
-        db = firebase.firestore();
-        storage = firebase.storage();
-
-        if (useEmulator) {
-            auth.useEmulator("http://localhost:9099");
-            db.useEmulator("http://localhost:8099");
-            storage.useEmulator("http://localhost:9199");
-            console.log('Firebase emulators initialized');
+            // Initialize Firebase services
+            window.auth = firebase.auth(); // Store in `window` for global access
+        } catch (error) {
+            console.error("Error initializing Firebase:", error.message);
         }
-
-        auth.onAuthStateChanged(user => {
-            if (user != null) {
-                console.log("Auth State Changed: " + user.email);
-            }
-        });
-    }).catch(error => {
-        console.error("Error fetching Firebase config:", error.message);
-        console.error("Stack trace:", error.stack);
-    });
-} else {
-    firebaseConfigUrl = 'https://us-central1-projectw-6c4cd.cloudfunctions.net/getFirebaseConfig';
-    fetch(firebaseConfigUrl).then(response => response.json()).then(config => {
-        firebase.initializeApp(config);
-
-        auth = firebase.auth();
-        db = firebase.firestore();
-        storage = firebase.storage();
-
-        // Set up auth state change listener after initialization
-        auth.onAuthStateChanged(user => {
-            if (user != null) {
-                console.log("Auth State Changed: " + user.email);
-            }
-        });
-    }).catch(error => {
-        console.error("Error fetching Firebase config:", error);
-    });
+    } else {
+        console.log("Firebase already initialized.");
+        window.auth = firebase.auth(); // Assign the global auth instance
+    }
 }
+
+// Call the initialization function
+initializeFirebase();

@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    await initializeFirebase(); // Ensure Firebase is initialized
+
     const signupForm = document.getElementById('reg-signup-form');
     const emailInput = document.getElementById('reg-email');
     const passwordInput = document.getElementById('reg-password');
