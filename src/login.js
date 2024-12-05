@@ -14,6 +14,17 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
     }
 });
 
+document.getElementById('logout-button').addEventListener('click', async () => {
+    try {
+        await auth.signOut();
+        console.log('User logged out');
+        window.location.href = "./login.html";
+    } catch (error) {
+        console.error('Error logging out:', error);
+        alert('Error logging out: ' + error.message);
+    }
+});
+
 const navToRegister = () => {
     window.location.href = "./register.html"
 }

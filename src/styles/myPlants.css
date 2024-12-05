@@ -33,6 +33,31 @@ header h1 {
     font-size: 2.5rem;
 }
 
+.navbar {
+    width: 100%;
+    background-color: #378d3d; /* Dark green background */
+    display: flex;
+    justify-content: center; /* Center the navigation bar items */
+    align-items: center;
+    padding: 10px 0; /* Vertical padding for navbar */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+}
+
+.navbar a {
+    color: white; /* Set link color to white */
+    text-decoration: none; /* Remove underline from links */
+    padding: 8px 10px; /* Reduced padding for closer spacing */
+    border-radius: 30px; /* Round the corners for buttons */
+    background-color: #378d3d; /* Dark green background for buttons */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions for hover effects */
+    margin: 0 5px; /* Reduce space between links */
+}
+
+.navbar a:hover {
+    background-color: #3e9b43; /* Change background on hover */
+    transform: translateY(-3px); /* Add lift effect on hover */
+}
+
 /* Main Content Styling */
 main {
     margin-top: 20px;
