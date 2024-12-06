@@ -2,10 +2,15 @@ import express from 'express';
 import OpenAI from 'openai';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
 
-// Provide your OpenAI API key here
+
+// Load environment variables from .env file
+dotenv.config();
+
+// Provide your OpenAI API key here using environment variable
 const openai = new OpenAI({
-  apiKey: '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' // Replace with your actual OpenAI API key
+  apiKey: process.env.OPENAI_API_KEY, // Use the environment variable here
 });
 
 const app = express();
