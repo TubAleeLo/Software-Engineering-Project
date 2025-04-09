@@ -30,7 +30,7 @@ button:hover {
 
 /* Error message styling */
 #password-error, #email-error {
-  margin: 0 auto;
+  margin: 0 auto 15px auto; /* Center error messages */
   height: 40px; /* Adjust height as necessary */
   font-size: 10pt;
   color: red;
@@ -40,6 +40,7 @@ button:hover {
 
 #password-error.visible, #email-error.visible {
   visibility: visible;
+  padding: 0 0 25px 0; /* Space for error message */
 }
 
 /* Form container styling */
